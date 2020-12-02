@@ -28,6 +28,7 @@ class AuthController extends Controller {
     	$validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string|min:6',
+            
         ]);
 
         if ($validator->fails()) {
@@ -51,6 +52,15 @@ class AuthController extends Controller {
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string|confirmed|min:6',
+            'address' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'phone_no' => 'required',
+            'dob' => 'required',
+            'NIC' => 'required',
+            'registation_date' => 'required',
+            'updation_date' => 'required',
+            
         ]);
 
         if($validator->fails()){

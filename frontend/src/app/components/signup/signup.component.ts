@@ -22,7 +22,16 @@ export class SignupComponent implements OnInit {
       name: [''],
       email: [''],
       password: [''],
-      password_confirmation: ['']
+      password_confirmation: [''],
+      address:[''],
+      country:[''],
+      city:[''],
+      phone_no:[''],
+      dob:[''],
+      NIC:[''],
+      registation_date:[''],
+      updation_date:[''],
+
     })
   }
 

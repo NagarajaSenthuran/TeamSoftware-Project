@@ -6,6 +6,24 @@
       <div *ngIf="errors?.name" class="alert alert-danger mt-3">
         {{ errors?.name }}
       </div>
+      <div *ngIf="errors?.address" class="alert alert-danger mt-3">
+        {{ errors?.address }}
+      </div>
+      <div *ngIf="errors?.country" class="alert alert-danger mt-3">
+        {{ errors?.country }}
+      </div>
+      <div *ngIf="errors?.city" class="alert alert-danger mt-3">
+        {{ errors?.city }}
+      </div>
+      <div *ngIf="errors?.phone_no" class="alert alert-danger mt-3">
+        {{ errors?.phone_no }}
+      </div>
+      <div *ngIf="errors?.dob" class="alert alert-danger mt-3">
+        {{ errors?.dob }}
+      </div>
+      <div *ngIf="errors?.NIC" class="alert alert-danger mt-3">
+        {{ errors?.NIC }}
+      </div>
       <div *ngIf="errors?.email" class="alert alert-danger mt-3">
         {{ errors?.email }}
       </div>
@@ -15,24 +33,71 @@
       <div *ngIf="errors?.password_confirmation" class="alert alert-danger mt-3">
           {{ errors?.password_confirmation }}
       </div>
-
+      <div *ngIf="errors?.address" class="alert alert-danger mt-3">
+        {{ errors?.registation_date }}
+      </div>
+      <div *ngIf="errors?.country" class="alert alert-danger mt-3">
+        {{ errors?.updation_date }}
+      </div>
+      
+      
       <!-- Signup form -->
       <div class="form-group">
-          <label>Name</label>
-          <input type="text" class="form-control" formControlName="name">
+         <!--<label>Name</label> -->
+          <input type="text" class="form-control" formControlName="name"  placeholder="Full Name" required autofocus>
       </div>
       <div class="form-group">
-          <label>Email address</label>
-          <input type="email" class="form-control" formControlName="email">
+        <!-- <label>Email address</label> -->
+        <input type="email" class="form-control" formControlName="email"  placeholder="E-Mail" required autofocus>
+      </div>
+      <div class="row">
+       <div class="form-group col-6" >
+           <!-- <label>Password</label> -->
+           <input type="password" class="form-control" formControlName="password"  placeholder="Password" required autofocus>
+       </div>
+       <div class="form-group col-6">
+         <!-- <label>Confirm Password</label> -->
+         <input type="password" class="form-control" formControlName="password_confirmation"  placeholder="Confirm Password" required autofocus>
+       </div>
       </div>
       <div class="form-group">
-          <label>Password</label>
-          <input type="password" class="form-control" formControlName="password">
+          <!-- <label>Address</label> -->
+          <input type="text" class="form-control" formControlName="address"  placeholder="Address" required autofocus>
       </div>
-      <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" class="form-control" formControlName="password_confirmation">
-      </div>
+      <div class="row">
+      <div class="form-group col-6">
+        <!-- <label>Country</label> -->
+        <input type="text" class="form-control" formControlName="country" placeholder="Country" required autofocus>
+     </div>
+      <div class="form-group col-6">
+       <!-- <label> City</label> -->
+       <input type="text" class="form-control" formControlName="city"  placeholder="City" required autofocus>
+     </div>
+    </div>
+    <div class="row">
+     <div class="form-group col-6">
+      <!-- <label>Phone Number</label> -->
+      <input type="text" class="form-control" formControlName="phone_no"  placeholder="Phone Number" required autofocus>
+     </div>
+     <div class="form-group col-6">
+      <!-- <label>D.O.B</label> -->
+      <input type="text" class="form-control" formControlName="dob"  placeholder="D.O.B" required autofocus>
+    </div>
+    </div>
+    <div class="form-group">
+      <!-- <label>NIC Number</label> -->
+      <input type="text" class="form-control" formControlName="NIC"  placeholder="NIC Number" required autofocus>
+    </div>
+    <div class="row">
+    <div class="form-group col-6">
+      <!-- <label>Registation Date</label> -->
+      <input type="date" class="form-control" formControlName="registation_date"  placeholder="Registation Date" required autofocus>
+    </div>
+    <div class="form-group col-6">
+      <!-- <label>Updation Date </label> -->
+      <input type="date" class="form-control" formControlName="updation_date"  placeholder="Updation Date" required autofocus >
+    </div>
+    </div>
       <button type="submit" class="btn btn-block btn-primary">Register User</button>
   </form>
 </div>
