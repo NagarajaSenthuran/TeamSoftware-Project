@@ -7,3 +7,6 @@ html,body,.auth-wrapper{height:100%;}
 label{font-weight:500;}
 .container{max-width:600px;}
 .inner-main{margin-top:130px;}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

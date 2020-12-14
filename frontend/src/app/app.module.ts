@@ -12,6 +12,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { ContactComponent } from './contact/contact.component';
+import { BookingComponent } from './booking/booking.component';
+import { HomeComponent } from './home/home.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { AboutComponent } from './about/about.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -19,14 +27,22 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     AppComponent,
     SigninComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ContactComponent,
+    BookingComponent,
+    HomeComponent,
+    FeedbackComponent,
+    VehicleComponent,
+    TestimonialComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     {
