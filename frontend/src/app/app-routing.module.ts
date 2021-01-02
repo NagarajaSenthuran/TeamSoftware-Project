@@ -13,6 +13,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutComponent } from './about/about.component';
+import { ContactsViewComponent } from './components/contacts-view/contacts-view.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'testiminial', component: TestimonialComponent },
-  { path: 'vehicle', component: VehicleComponent }
+  { path: 'vehicle', component: VehicleComponent },
+  { path: 'view-contacts', component: ContactsViewComponent }
   
 ];
 

@@ -11,6 +11,7 @@ import { AuthStateService } from './shared/auth-state.service';
 
 export class AppComponent implements OnInit {
   isSignedIn: boolean;
+  title: any;
 
   constructor(
     private auth: AuthStateService,

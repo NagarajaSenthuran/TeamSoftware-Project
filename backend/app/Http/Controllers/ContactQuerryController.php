@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ContactQuerry;
 use Illuminate\Http\Request;
 
+use Validator;
 class ContactQuerryController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class ContactQuerryController extends Controller
      */
     public function index()
     {
-        //
+        // $contactQuerry = ContactQuerry::with('client');
+        // return ContactQuerry::collection($contactQuerry->paginate(1000));
+        
     }
 
     /**
@@ -35,7 +38,31 @@ class ContactQuerryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator=Validator::make($request->all(),['name'=>'required','email'=>'required','phone_num'=>'required','message'=>'required','Posting_date'=>'required']);
+        if($validator->passes())
+        {
+            $contactQuerry = new ContactQuerry;
+            $contactQuerry->name=$request->name;
+            $contactQuerry->email = $request->email;
+            $contactQuerry->phone_num = $request->phone_num;
+            $contactQuerry->message = $request->message;
+            $contactQuerry->Posting_date = $request->Posting_date;
+            $result=$contactQuerry->save();
+            $arr = array('status'=>'true','message'=>'Your Message Successfully Send');
+        }
+        else 
+        {
+            $arr = array('status'=>'false','message'=>$validator->errors()->all());
+        }
+        echo json_encode($arr);
+       
+        //  if($result)
+        //  {
+        //      return["Result"=>"your message sended!"];
+        //  }
+        //  else{
+        //      return["Result"=>"error"];
+        //  }
     }
 
     /**
@@ -46,7 +73,7 @@ class ContactQuerryController extends Controller
      */
     public function show(ContactQuerry $contactQuerry)
     {
-        //
+        return ContactQuerry::all();
     }
 
     /**
@@ -80,6 +107,15 @@ class ContactQuerryController extends Controller
      */
     public function destroy(ContactQuerry $contactQuerry)
     {
-        //
+        $contactQuerry=ContactQuerry::find($id);
+        $result=$contactQuerry->delete();
+        if ($result)
+      {
+        return["Result"=>"message deleted successfully"];
+      }
+      else
+      {
+        return["Result"=>"delete operation failed"];
+      }
     }
 }

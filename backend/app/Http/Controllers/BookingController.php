@@ -39,11 +39,13 @@ class BookingController extends Controller
     {
         //
         $booking = new Booking;
+        $booking->Name=$request->Name;
         $booking->User_email=$request->User_email;
-        $booking->Vehicle_id = $request->Vehicle_id;
+       // $booking->Vehicle_id = $request->Vehicle_id;
         $booking->Start_date = $request->Start_date;
         $booking->End_date = $request->End_date;
         $booking->Message = $request->Message;
+        $booking->Car_Type = $request->Car_Type;
         $booking->Status = $request->Status;
         $booking->Posting_date = $request->Posting_date;
         $booking->Registration_date = $request->Registration_date;

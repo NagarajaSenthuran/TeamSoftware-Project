@@ -20,6 +20,18 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutComponent } from './about/about.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//anguar material
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { ContactsViewComponent } from './components/contacts-view/contacts-view.component';
+
+
 
 
 @NgModule({
@@ -34,15 +46,25 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FeedbackComponent,
     VehicleComponent,
     TestimonialComponent,
-    AboutComponent
+    AboutComponent,
+    ContactsViewComponent,
+   
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     {

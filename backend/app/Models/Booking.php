@@ -9,6 +9,7 @@ class Booking extends Model
 {
     use HasFactory;
     protected $table = 'vehicles';
-    protected $fillable = ['User_email','Vehicle_id','Start_date','End_date','Message','Status','Posting_date'];
+    protected $primaryKey='id';
+    protected $fillable = ['Name','User_email','Vehicle_id','Start_date','End_date','Message','Car_Type','Status','Posting_date'];
 
 }

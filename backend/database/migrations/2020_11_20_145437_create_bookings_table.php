@@ -15,11 +15,13 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('Name');  
             $table->string('User_email');  
-            $table->unsignedBigInteger('Vehicle_id'); 
+           // $table->unsignedBigInteger('Vehicle_id'); 
             $table->date('Start_date',0);
             $table->date('End_date',0);
             $table->string('Message');
+            $table->string('Car_Type');
             $table->string('Status');
             $table->date('Posting_date',0);
             $table->timestamps();
@@ -27,7 +29,7 @@ class CreateBookingsTable extends Migration
 
            
             $table->foreign('User_email')->references('email')->on('users')->onDelete('cascade');
-            $table->foreign('Vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
+           // $table->foreign('Vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
         });
     }
 

@@ -7,33 +7,35 @@
     </div>
     <div class="col-sm-6">
         <div class="row">
-            <div class="col-sm-12">
-                <h4 class="text-site">Contact Form</h4>
+            <div class="col-sm-12 bol" >
+                <h1 class="text-site" >Contact Form</h1>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6">                
+                <form [formGroup]="contectForm" (ngSubmit)="save_contact(contectForm)">
                 <div class="form-group">
                     <label >Enter Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" formControlName="name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label >Enter E-Mail</label>
-                    <input type="text" class="form-control">
+                    <input type="text" formControlName="email" class="form-control">
                 </div>
                 <div class="form-group">
                     <label >Enter Phone No</label>
-                    <input type="text" class="form-control">
+                    <input type="text" formControlName="phone_num" class="form-control">
                 </div>
                 <div class="form-group">
                     <label >Enter Message</label>
-                   <textarea class="form-control"></textarea>
+                   <textarea class="form-control"  formControlName="message"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Posting Date </label>
-                   <input type="date" class="form-control" >
+                   <input type="date" class="form-control" formControlName="Posting_date" >
                  </div>
                 <div class="form-group">
                     <button class="btn btn-info">Send</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
@@ -43,7 +45,10 @@
         <div class="col-sm-4 subscribe_box">
             <p class="footer_text"> welcome </p>
             <h3 class="footer_text" >For Latest Update Subscribe Now !</h3>
-            <input type="email"name="email" class="form-control" placeholder="E-Mail"/>
+                <form [formGroup]="subscribeForm" (ngSubmit)="subscribe_now(subscribeForm)">
+                    <input type="email"name="email" class="form-control" formControlName="email" placeholder="E-Mail"/>
+                    <button class="btn btn-info">Subscribe</button>
+                </form>
         </div>
         <div class="col-sm-4">
             <h4 class="text-center mt-3 footer_text">Contact Information</h4>

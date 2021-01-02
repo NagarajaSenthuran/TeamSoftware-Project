@@ -37,7 +37,7 @@ class VehicleController extends Controller
          $result=$vehicle->save();
          if($result)
          {
-             return["Result"=>"Vehicle record created"];
+             return["Result"=>$result];
          }
          else{
              return["Result"=>"error"];
