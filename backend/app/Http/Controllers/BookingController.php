@@ -15,7 +15,9 @@ class BookingController extends Controller
     public function index()
     {
         //
-        return Booking::all();
+       // return Booking::all();
+       $booking = Booking::all();
+       return new BookingResource($booking);
     }
 
     /**
@@ -52,13 +54,15 @@ class BookingController extends Controller
         $booking->Updation_date = $request->Updation_date;
 
         $result=$vehicle->save();
-        if($result)
-        {
-            return["Result"=>"Vehicle record created"];
-        }
-        else{
-            return["Result"=>"error"];
-        }
+        // if($result)
+        // {
+        //     return["Result"=>"Vehicle record created"];
+        // }
+        // else{
+        //     return["Result"=>"error"];
+        // }
+
+        return BookingResource::collection($booking->paginate());
     }
 
     /**
@@ -92,9 +96,25 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request)
     {
         //
+        $booking=Booking::find($request->id);
+      
+        $booking->Name=$request->Name;
+        $booking->User_email=$request->User_email;
+       // $booking->Vehicle_id = $request->Vehicle_id;
+        $booking->Start_date = $request->Start_date;
+        $booking->End_date = $request->End_date;
+        $booking->Message = $request->Message;
+        $booking->Car_Type = $request->Car_Type;
+        $booking->Status = $request->Status;
+        $booking->Posting_date = $request->Posting_date;
+        $booking->Registration_date = $request->Registration_date;
+        $booking->Updation_date = $request->Updation_date;
+
+        $result=$vehicle->save();
+        return BookingResource::collection($booking->paginate());
     }
 
     /**
@@ -103,8 +123,11 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy($id)
     {
         //
+        $booking = Booking::find($id);
+        $booking->delete();
+       
     }
 }

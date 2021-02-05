@@ -1,0 +1,63 @@
+<body>
+  <div class="row">
+    <div class="col-md-6 p-3">
+      <i class='fas fa-car' style='font-size:20px;color:red'></i>
+      <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+      <i class='fas fa-car' style='font-size:40px;color:white'></i>
+      <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+      <i class='fas fa-car' style='font-size:20px;color:red'></i>
+   </div>
+    <div class="col-md-6">
+      <div class="pull-right text-muted p-4" style="font-size: 20px; font-weight: bold;">Total Vehicles: </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row mt-2 p-3  ">
+    <div class="col-md-12">
+      <table *ngIf = "vehicleArray?.length > 0; else noVehicle" class="table table-dark table-striped table-hover">
+        <thead class="thead-inverse thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Vehicle Name</th>
+            <th>Vehicle Brand</th>
+            <th>Vehicle Overview</th>
+            <th>Price Per Day</th>
+            <th>Fuel Type</th>
+            <th>Model Year</th>
+            <th>Seating Capacity</th>
+            <th>Vehicle Img</th>
+            <th>Registration Date</th>
+            <th>Updation Date</th>
+            <th>Edit</th>
+            <th>Delete</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let vehicle of vehicleArray">
+            <td>{{vehicle.id}}</td>
+            <td>{{vehicle.vehicle_name}}</td>
+            <td>{{vehicle.vehicle_brand}}</td> 
+            <td>{{vehicle.vehicle_overview}}</td>
+            <td>{{vehicle.price_per_day}} </td>
+            <td>{{vehicle.fuel_type}}</td>
+            <td>{{vehicle.model_year}}</td>
+            <td>{{vehicle.seating_capacity}}</td>
+            <td>{{vehicle.veh_img}}</td>
+            <td>{{vehicle.registration_date}}</td>
+            <td>{{vehicle.updation_date}}</td>
+            <td><i class='fas fa-edit' style='font-size:20px;color:rgb(37, 150, 216)'></i></td>
+            <td><i class='fas fa-trash-alt' style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #noVehicle>
+    <hr />
+    <h4>There are no Vehicle in the system</h4>
+  </ng-template>
+  
+</body>
+  
+

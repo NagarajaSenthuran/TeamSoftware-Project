@@ -27,7 +27,7 @@ Route::get('vehicles', [ VehicleController::class, 'getAllVehicle']);
 Route::get('vehicles/{id}', [ VehicleController::class, 'getVehicle']);
 Route::put('vehicles', [ VehicleController::class, 'updateVehicle']);
 Route::delete('vehicles/{id}', [ VehicleController::class, 'deleteVehicle']);
-
+Route::post('/sample-restful-apis', [VehicleController::class, 'upload'])->name('sample-restful-apis');
 //booking
 Route::post('bookings', [ BookingController::class, 'store']);
 Route::get('bookings', [ BookingController::class, 'index']);

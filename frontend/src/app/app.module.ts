@@ -29,7 +29,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+
 import { ContactsViewComponent } from './components/contacts-view/contacts-view.component';
+import { ViewBookingComponent } from './components/view-booking/view-booking.component';
+import { ViewVehiclesComponent } from './components/view-vehicles/view-vehicles.component';
+import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
+
 
 
 
@@ -48,6 +54,10 @@ import { ContactsViewComponent } from './components/contacts-view/contacts-view.
     TestimonialComponent,
     AboutComponent,
     ContactsViewComponent,
+    ViewVehiclesComponent,
+    ViewBookingComponent,
+    AddVehicleComponent,
+  
    
   ],
   
@@ -64,7 +74,8 @@ import { ContactsViewComponent } from './components/contacts-view/contacts-view.
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   providers: [
     {

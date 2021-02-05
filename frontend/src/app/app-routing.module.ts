@@ -14,6 +14,8 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsViewComponent } from './components/contacts-view/contacts-view.component';
+import { ViewVehiclesComponent } from './components/view-vehicles/view-vehicles.component';
+import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 
 
 const routes: Routes = [
@@ -28,8 +30,9 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
   { path: 'testiminial', component: TestimonialComponent },
   { path: 'vehicle', component: VehicleComponent },
-  { path: 'view-contacts', component: ContactsViewComponent }
-  
+  { path: 'view-contacts', component: ContactsViewComponent },
+  { path: 'view-vehicle', component: ViewVehiclesComponent },
+  { path: 'add-vehicle', component: AddVehicleComponent }
 ];
 
 @NgModule({

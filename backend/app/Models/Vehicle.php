@@ -9,5 +9,6 @@ class Vehicle extends Model
 {
     use HasFactory;
     protected $table = 'vehicles';
-    protected $fillable = ['Vehicle_name','Vehicle_brand','Vehicle_overview','Price_per_day','Fuel_type','Model_year','Seating_capacity','Registration_date','Updation_date'];
-}//'veh_img',
+    protected $fillable = ['vehicle_name','vehicle_brand','vehicle_overview','price_per_day','fuel_type','model_year','seating_capacity','veh_img','registration_date','updation_date'];
+    //
+}
