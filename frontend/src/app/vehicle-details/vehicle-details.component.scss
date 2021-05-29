@@ -1,0 +1,49 @@
+.card {
+    min-height: 500px;
+    width: 500px;
+  }
+  
+  .card img {
+    padding: 10px;
+    height: 350px;
+  }
+  
+  .card-img-wrapper {
+    height: 350px;
+  }
+
+  .card-title{
+    font-size: 45px;
+    color: #0069d9;
+  }
+
+  .ngx-gallery { display: inline-block; margin-bottom: 20px; }
+
+
+tab{
+color: #000;
+  }
+
+
+  
+  .button_a{
+    background-color: black;
+    color: blanchedalmond;
+    padding: 15px 20px;
+    border-radius: 25px 25px 25px 25px ;
+    display:inline-block;
+    width: 300px;
+    margin-left: 300px;
+    text-align: center;
+    text-decoration: none;
+    
+  }
+ 
+  .card:hover{
+    background-color: rgb(31, 30, 30);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 1s ease;
+    
+  }

@@ -1,0 +1,51 @@
+
+<body class="page_container">
+    <div class="row">
+      <div class="col-md-6 p-4">
+          <li class="">
+            <a class="button_a" routerLink="http://mail.google.com/mail/u/0/#compose"> Send Email</a>
+        </li>
+      </div>
+      <div class="col-md-6">
+        <div class="pull-right text-muted p-4" style="font-size: 20px; font-weight: bold;">Total Contacts: </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row mt-2 p-3  ">
+      <div class="col-md-12">
+        <table *ngIf = "contactArray?.length > 0; else noContact" class="table table-dark table-striped table-hover">
+          <thead class="thead-inverse thead-light">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Phone Num</th>
+              <th>Message</th>
+              <th>Posting date</th>
+              <th>Delete</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let contact of contactArray">
+              <td>{{contact.id}}</td>
+              <td>{{contact.name}}</td>
+              <td>{{contact.email}}</td> 
+              <td>{{contact.phone_num}}</td>
+              <td>{{contact.message}} </td>
+              <td>{{contact.Posting_date}}</td>
+             <td><i class='fas fa-trash-alt' style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #noContact>
+      <hr />
+      <h4>There are no Contact in the system</h4>
+    </ng-template>
+    
+  </body>
+    
+  
+  

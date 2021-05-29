@@ -36,7 +36,23 @@ import { ViewBookingComponent } from './components/view-booking/view-booking.com
 import { ViewVehiclesComponent } from './components/view-vehicles/view-vehicles.component';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 
+//ngx-boostrap
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
+
+import { AddNewvehicleComponent } from './components/add-newvehicle/add-newvehicle.component';
+import { VehicleCardComponent } from './vehicle-card/vehicle-card.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { VehiclesService } from './services/vehicles.service';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
+import { ViewFeedbackComponent } from './components/view-feedback/view-feedback.component';
+import { AlertifyService } from './services/Alertify.service';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { VehiclesDetailsResolverService } from './vehicle-details/vehicles-details-resolver.service';
+import { FilterPipe } from './Pipes/filter.pipe';
+import { SortPipe } from './Pipes/sort.pipe';
+import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-cotact-quarry.component';
 
 
 
@@ -57,6 +73,15 @@ import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.compon
     ViewVehiclesComponent,
     ViewBookingComponent,
     AddVehicleComponent,
+    AddNewvehicleComponent,
+    VehicleCardComponent,
+    VehicleListComponent,
+    HomeAdminComponent,
+    ViewFeedbackComponent,
+    VehicleDetailsComponent,
+    FilterPipe,
+    SortPipe,
+    ViewCotactQuarryComponent
   
    
   ],
@@ -75,14 +100,19 @@ import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.compon
     MatNativeDateModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    TabsModule.forRoot(),
+    NgxGalleryModule 
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    VehiclesService,
+    AlertifyService,
+    VehiclesDetailsResolverService
   ],
   bootstrap: [AppComponent]
 })

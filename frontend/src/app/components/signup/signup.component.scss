@@ -1,0 +1,79 @@
+
+
+.text1{
+    color: white;
+    
+}
+
+.card{
+    height: 100%;
+    background-image:url("../../../assets/d8.jpg") ;
+    background-color: rgba(30, 10, 214, 0.2);
+}
+
+.card-body{
+  background-color: rgba(107, 96, 204, 0.116);
+  
+}
+
+.form-control{
+    background-color: rgba(92, 75, 247, 0.1);
+    color: white;
+}
+
+form button {
+    appearance: none;
+outline: 0;
+background-color: white;
+border: 0;
+padding: 10px 15px;
+color: #000000;
+border-radius: 4px;
+width: 520px;
+cursor: pointer;
+font-size: 18px;
+transition-duration: 0.25s;
+background-color: rgb(139, 146, 245);
+ 
+}
+
+form input:hover {
+    background-color: rgba(12, 12, 12, 0.774);
+  }
+  form input:focus {
+    background-color: rgb(244, 252, 251);
+   // width: 300px;
+    color: #000000;
+  }
+
+
+  form input {
+appearance: none;
+outline: 0;
+border: 1px solid rgba(255, 255, 255, 0.692);
+border-radius: 3px;
+padding: 10px 15px;
+margin: 0 auto 10px auto;
+display: block;
+font-size: 18px;
+color: white;
+-webkit-transition-duration: 0.25s;
+transition-duration: 0.25s;
+font-weight: 300;
+
+}
+
+
+
+
+form button:hover {
+   color: white;
+    background-color:rgb(0, 65, 204);
+  }
+
+  form button{
+    //size:40px;
+    cursor: pointer;
+    font-size: large;
+     } 
+  

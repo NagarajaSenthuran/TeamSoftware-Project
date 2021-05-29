@@ -1,0 +1,20 @@
+body{
+    background-image: url("../../assets/b14.jpg");
+    background-size: cover;
+    background-size: 100%;
+    height: auto;
+}
+
+label{
+   color: white;
+ }
+
+.btn-outline-primary{
+   color: black;
+    background-color: rgb(55, 119, 216);
+ }
+
+ input:hover{
+     background-color: rgb(204, 203, 203);
+     //color: #000;
+ }

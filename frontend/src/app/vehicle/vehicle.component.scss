@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+}
+
+body{
+    background-image: url("../../assets/w7.png");
+    background-size: cover;
+    background-size: 100%;
+}
+
+.card{
+    background: rgb(255, 255, 255);
+    width: 400px;
+    height: 400px;
+    margin: 25px;
+}
+
+.card-image{
+    
+    height: 200px;
+    margin-bottom: 15px;
+
+}
+
+.img{
+   
+    width: 318px;
+}
+

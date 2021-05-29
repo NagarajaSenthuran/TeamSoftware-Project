@@ -1,1 +1,54 @@
-<p>feedback works!</p>
+<div class="page_container">
+      
+    
+    <div class="container">
+        <!-- <img class="img" src="../../assets/car.jpg"width="1200" height="650" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">  -->
+        <div class="row">
+            <div class="col-md-6-offset-md-6">
+                <form [formGroup]="feedbackForm"(ngSubmit)='onSubmit(feedbackForm)'>
+             <!-- <form [Form]="feedbackForm"(ngSubmit)='onSubmit(Form)' #Form="ngForm" > -->
+                 <h2 class="text-center">Feedback Form</h2>
+                 <!-- <h3 class="text-align-center"></h3> -->
+                 <div class="form-group">
+                    <label >Enter Name</label>
+                     <input type="text" class="form-control"placeholder="Name" formControlName="name">
+                     <!-- <span *ngIf="!propName.valid && propName.touched" class="error-block">
+                         Please provide name
+                     </span>  -->
+                     <!-- <span *ngIf="!form.get(userName).valid && form.get(userName).touched" class="error-block">
+                        Please provide name
+                    </span> -->
+                 </div>
+                 <div class="form-group">
+                    <label >Enter E-Mail</label>
+                    <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                    <!-- <input type="email" class="form-control" required email #email="ngModel" placeholder="Email" name="email" ngModel> -->
+                    <!-- <span *ngIf="email.errors.required">
+                        Please provide valid email id
+                    </span>  -->
+                </div>
+                <div class="form-group">
+                    <label >Enter Phone No</label>
+                    <input type="text" class="form-control" placeholder="Phone No" formControlName="phoneno">
+                    <!-- <input type="text" class="form-control" required minlength="10" maxlength="13" pattern="^[0-9]+$" placeholder="Phone No" name="phoneno" ngModel> -->
+                </div>
+                <div class="form-group">
+                    <label>Posting Date </label>
+                    <input type="date" class="form-control" placeholder="Posting Date" formControlName="postingdate">
+                </div>
+                <div class="form-group">
+                    <label>Message </label>
+                    <input type="textarea" class="form-control" placeholder="Message" formControlName="message">
+                </div>
+               
+                <div class="text-center">
+                    <!-- <button [disabled]="!feedbackForm.valid" type="Submit" class="btn btn-primary mr-2">Submit</button> -->
+                    <!-- <button [disabled]="!Form.valid" type="Submit" class="btn btn-primary mr-2">Submit</button> -->
+                    <button type="Submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="reset" class="btn btn-primary">Cancel</button>
+                </div>
+             </form>
+            </div>
+        </div> 
+    </div>
+    </div>

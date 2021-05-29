@@ -1,0 +1,22 @@
+@font-face{
+    font-family: Anton;
+    src:url('../Anton/Anton-Regular.ttf');
+}
+
+@font-face{
+    font-family: Archivo_Black;
+    src:url('../Archivo_Black/ArchivoBlack-Regular.ttf');
+}
+@font-face{
+    font-family:Bebas_Neue;
+    src:url('../Bebas_Neue/BebasNeue-Regular.ttf');
+}
+@font-face{
+    font-family: Anton;
+    src:url('../Cinzel/Cinzel-VariableFont_wght.ttf');
+}
+
+@font-face{
+    font-family: Monoton;
+    src:url('../Monoton/Monoton-Regular.ttf');
+}

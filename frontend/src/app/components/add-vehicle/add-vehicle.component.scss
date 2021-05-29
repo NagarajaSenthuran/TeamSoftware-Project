@@ -1,3 +1,8 @@
+body{
+    background-image:url("../../../assets/B.jpg") ;
+    background-size: 100%;
+    background-size: cover;
+}
 .text-site{
     margin-left: 90px;
 }
@@ -5,3 +10,18 @@
 .bol{
     font-weight: bold;
    }
+
+  
+
+.container{
+    
+    margin: auto;
+}
+
+.photo-control {
+    min-height: 300px;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px dashed blue;
+    margin: 5px;
+  }

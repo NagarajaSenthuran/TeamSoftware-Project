@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("../../assets/b12.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+h1{
+    color: orangered;
+}
+.container {
+    margin-top: 70px;
+    margin-right: 0%;
+    margin-left: 0%;
+    height: 75vh;
+    width: 100%;
+    background: rgba(22, 26, 82, 0.452);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* padding: 0 20px; */
+}
+
+.container h1 {
+    color: rgb(0, 253, 253);
+    margin-top: 50px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    font-family:Cinzel ;
+}
+
+.container P {
+    color: white;
+    margin-top: 60PX;
+    font-size: large;
+    font-family:Cinzel;
+    font-size: 22px;
+}
+
+.btn {
+    background: no-repeat;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    width: 50%;
+    padding: 7px 15px;
+    font-size: large;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 50px;
+    margin-left: 250px;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}

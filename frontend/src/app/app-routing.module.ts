@@ -1,3 +1,5 @@
+//import { VehicleDetailResolverService } from './vehicle-detail/vehicle-detail-resolver.service';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -16,7 +18,13 @@ import { AboutComponent } from './about/about.component';
 import { ContactsViewComponent } from './components/contacts-view/contacts-view.component';
 import { ViewVehiclesComponent } from './components/view-vehicles/view-vehicles.component';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
-
+import { AddNewvehicleComponent } from './components/add-newvehicle/add-newvehicle.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
+import { ViewFeedbackComponent } from './components/view-feedback/view-feedback.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { VehiclesDetailsResolverService } from './vehicle-details/vehicles-details-resolver.service';
+import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-cotact-quarry.component';
 
 const routes: Routes = [
  // { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,7 +40,13 @@ const routes: Routes = [
   { path: 'vehicle', component: VehicleComponent },
   { path: 'view-contacts', component: ContactsViewComponent },
   { path: 'view-vehicle', component: ViewVehiclesComponent },
-  { path: 'add-vehicle', component: AddVehicleComponent }
+  { path: 'add-vehicle', component: AddVehicleComponent },
+  { path: 'add-newvehicle', component: AddNewvehicleComponent },
+  { path: 'vehicle-list', component: VehicleListComponent },
+  { path: 'admin', component: HomeAdminComponent },
+  { path: 'view-feedback', component: ViewFeedbackComponent},
+  { path: 'vehicle-detail/:id', component: VehicleDetailsComponent,resolve :{ve:VehiclesDetailsResolverService}},
+  { path: 'view-contact-quarry', component: ViewCotactQuarryComponent},
 ];
 
 @NgModule({

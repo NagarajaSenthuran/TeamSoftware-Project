@@ -1,6 +1,6 @@
 html,body,.auth-wrapper{height:100%;}
-.auth-wrapper {display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;background-color:#f5f5f5;}
-.form-signin {width:100%;max-width:400px;padding:15px;margin:auto;}
+.auth-wrapper {display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;background-image:url("assets/b6.jpg");}
+.form-signin {width:100%;max-width:550px;padding:15px;margin:auto;}
 .form-signin .checkbox{font-weight:400;}
 .form-signin .form-control{position:relative;box-sizing:border-box;height:auto;padding:10px;font-size:16px;}
 .form-control:focus{box-shadow:none;}
@@ -10,6 +10,22 @@ label{font-weight:500;}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import 'assets/tabs.scss';
+@import 'assets/form.scss';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+// new fonts from Google Fonts
+@import '../src/assets/font/fonts/font.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.page_container
+{
+    margin-top:-20px;
+    margin-bottom:10px;
+
+}

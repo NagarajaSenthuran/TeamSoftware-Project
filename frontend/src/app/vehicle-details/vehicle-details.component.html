@@ -1,0 +1,103 @@
+  
+<div class="row shadow">
+    <div class="col-sm-4 p-0">
+      <div class="card">
+        <div class="card-img-wrapper">
+            <img *ngIf="vehicle?.Image" class="card-img-top" src="assets/{{vehicle.Image}}.jpg">
+            <img *ngIf="!vehicle?.Image" class="card-img-top" src="assets/emty.png">
+        </div>
+        <div class="card-body">
+          <h1 class="card-title">{{vehicle?.VehicleName}}</h1>
+          <div>
+              <strong>{{vehicle?.Details}} , {{vehicle?.Brand}} </strong>
+          </div>
+          <div>
+             <strong>in {{vehicle?.Model_Year}}</strong>
+          </div> <hr>
+          <div>
+              <strong> Model_Year: </strong>
+              {{vehicle?.Model_Year}} 
+          </div>
+  
+          <div>
+              <strong>Register: </strong>
+              Yes
+          </div>
+          <div>
+              <strong>Vehicle Type: </strong>
+              {{vehicle?.Brand}}
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+            <button class="btn btn-primary">Like</button>
+            <button class="btn btn-success">Message</button>
+          </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-sm-8 p-0">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Overview">
+            <h1>Overview</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="heading">
+                        <strong>Vehicle Name</strong>
+                        <p>{{vehicle?.VehicleName}}</p>
+                    </div>
+  
+                    <div class="heading">
+                        <strong>Brand Name</strong>
+                        <p>{{vehicle?.Brand}}</p>
+                    </div>
+  
+                    <div class="heading">
+                        <strong>Model year</strong>
+                        <p>{{vehicle?.Model_Year}}</p>
+                    </div>
+  
+                    <div class="heading">
+                        <strong>FuelType</strong>
+                        <p>{{vehicle?.Fuel_Type}}</p>
+                    </div>
+                </div>
+  
+                <div class="col-sm-6">
+                    <div class="heading">
+                        <strong>Vehicle Tiers gas</strong>
+                        <p>Nitrogen</p>
+                          
+                    </div>
+  
+                    <div class="heading">
+                        <strong>Detail</strong>
+                        <p>{{vehicle?.Details}}</p>
+                    </div>
+  
+                    <div class="heading">
+                        <strong>Vehicle Insurance</strong>
+                        <p>Full Insurance</p>
+                    </div>
+                    <div class="heading">
+                        <strong>Seating capasity</strong>
+                        <p>{{vehicle?.Seating_Capasity}}</p>
+                    </div>
+                    
+                </div>
+                
+              </div>
+              <a href="/booking" class="button_a">Book Now!</a>
+          </tab>
+          <tab heading="Photos">  
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+          </tab>
+          <tab heading="Contact">
+            <h1>Contact Detail</h1>
+            This should be restricted area and only registered user should be able to see seller contact details
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>

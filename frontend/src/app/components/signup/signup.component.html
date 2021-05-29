@@ -1,6 +1,8 @@
-<div class="auth-wrapper">
+<body class="page_container">
+  
+<div class= "card text1">
   <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <h3 class="h3 mb-3 font-weight-normal text-center">Register User</h3>
+      <h1 class="h1 card-header mb-3 font-weight-normal text-center">Register User</h1>
 
       <!-- Errors -->
       <div *ngIf="errors?.name" class="alert alert-danger mt-3">
@@ -40,64 +42,68 @@
         {{ errors?.updation_date }}
       </div>
       
+      <div class="card-body">
+        <!-- Signup form -->
+      <div class="form-group">
+        <!--<label>Name</label> -->
+         <input type="text" class="form-control" formControlName="name"  placeholder="Full Name" required autofocus>
+     </div>
+     <div class="form-group">
+       <!-- <label>Email address</label> -->
+       <input type="email" class="form-control" formControlName="email"  placeholder="E-Mail" required autofocus>
+     </div>
+     <div class="row">
+      <div class="form-group col-6" >
+          <!-- <label>Password</label> -->
+          <input type="password" class="form-control" formControlName="password"  placeholder="Password" required autofocus>
+      </div>
+      <div class="form-group col-6">
+        <!-- <label>Confirm Password</label> -->
+        <input type="password" class="form-control" formControlName="password_confirmation"  placeholder="Confirm Password" required autofocus>
+      </div>
+     </div>
+     <div class="form-group">
+         <!-- <label>Address</label> -->
+         <textarea type="text" formControlName="address" class="form-control" placeholder="Address" required autofocus></textarea>       
+         </div>
+     <div class="row">
+     <div class="form-group col-6">
+       <!-- <label>Country</label> -->
+       <input type="text" class="form-control" formControlName="country" placeholder="Country" required autofocus>
+    </div>
+     <div class="form-group col-6">
+      <!-- <label> City</label> -->
+      <input type="text" class="form-control" formControlName="city"  placeholder="City" required autofocus>
+    </div>
+   </div>
+   <div class="row">
+    <div class="form-group col-6">
+    <label>Phone Number</label>
+     <input type="text" class="form-control" formControlName="phone_no"  placeholder="Phone Number" required autofocus>
+    </div>
+    <div class="form-group col-6">
+    <label>D.O.B</label>
+     <input type="date" class="form-control" formControlName="dob"  placeholder="D.O.B" required autofocus>
+   </div>
+   </div>
+   <div class="form-group">
+     <!-- <label>NIC Number</label> -->
+     <input type="text" class="form-control" formControlName="NIC"  placeholder="NIC Number" required autofocus>
+   </div>
+   <div class="row">
+   <div class="form-group col-6">
+    <label >Registration Date</label> 
+     <input type="date" class="form-control" formControlName="registation_date"  placeholder="Registation Date" required autofocus>
+   </div>
+   <div class="form-group col-6">
+      <label>Updation Date </label>
+     <input type="date" class="form-control" formControlName="updation_date"  placeholder="Updation Date" required autofocus >
+   </div>
+      </div>
       
-      <!-- Signup form -->
-      <div class="form-group">
-         <!--<label>Name</label> -->
-          <input type="text" class="form-control" formControlName="name"  placeholder="Full Name" required autofocus>
-      </div>
-      <div class="form-group">
-        <!-- <label>Email address</label> -->
-        <input type="email" class="form-control" formControlName="email"  placeholder="E-Mail" required autofocus>
-      </div>
-      <div class="row">
-       <div class="form-group col-6" >
-           <!-- <label>Password</label> -->
-           <input type="password" class="form-control" formControlName="password"  placeholder="Password" required autofocus>
-       </div>
-       <div class="form-group col-6">
-         <!-- <label>Confirm Password</label> -->
-         <input type="password" class="form-control" formControlName="password_confirmation"  placeholder="Confirm Password" required autofocus>
-       </div>
-      </div>
-      <div class="form-group">
-          <!-- <label>Address</label> -->
-          <textarea type="text" formControlName="address" class="form-control" placeholder="Address" required autofocus></textarea>       
-          </div>
-      <div class="row">
-      <div class="form-group col-6">
-        <!-- <label>Country</label> -->
-        <input type="text" class="form-control" formControlName="country" placeholder="Country" required autofocus>
-     </div>
-      <div class="form-group col-6">
-       <!-- <label> City</label> -->
-       <input type="text" class="form-control" formControlName="city"  placeholder="City" required autofocus>
-     </div>
     </div>
-    <div class="row">
-     <div class="form-group col-6">
-     <label>Phone Number</label>
-      <input type="text" class="form-control" formControlName="phone_no"  placeholder="Phone Number" required autofocus>
-     </div>
-     <div class="form-group col-6">
-     <label>D.O.B</label>
-      <input type="date" class="form-control" formControlName="dob"  placeholder="D.O.B" required autofocus>
-    </div>
-    </div>
-    <div class="form-group">
-      <!-- <label>NIC Number</label> -->
-      <input type="text" class="form-control" formControlName="NIC"  placeholder="NIC Number" required autofocus>
-    </div>
-    <div class="row">
-    <div class="form-group col-6">
-     <label >Registration Date</label> 
-      <input type="date" class="form-control" formControlName="registation_date"  placeholder="Registation Date" required autofocus>
-    </div>
-    <div class="form-group col-6">
-       <label>Updation Date </label>
-      <input type="date" class="form-control" formControlName="updation_date"  placeholder="Updation Date" required autofocus >
-    </div>
-    </div>
-      <button type="submit" class="btn btn-block btn-primary">Register User</button>
+      <button type="submit" class="btn">Register User</button>
   </form>
 </div>
+
+</body>

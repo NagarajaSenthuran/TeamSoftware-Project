@@ -1,0 +1,110 @@
+<body class="page_container">
+  <div class="row mb-5">
+        <div class="col-8 ">
+          <div class="card col-8 ">
+              <div class="card-header">
+                Add New Vehicle
+              </div>
+              <div class="card-body ">
+                <form (ngSubmit)='onSubmit()' [formGroup]=addvehicleForm>
+                  <div class="tab-panel">
+                    <tabset class="member-tabset" #formTabs>
+                      <tab  heading="Vehicle Details" formGroupName="VehicleDetails">
+                        <div class="row">
+                          <div class="form-group col-6">
+                            <label> VehicleName</label>
+                            <input type="text" class="form-control"  formControlName="VehicleName" [(ngModel)]="vehicleView.VehicleName"  >
+                            <!-- <span *ngIf="!vehName.valid && vehName.touched" class="error-block">
+                              <span *ngIf="vehName.errors.required">Please provide name</span>
+                              <span *ngIf="vehName.errors.minlength">Name must be atleast 3 char long</span>
+                            </span> -->
+                            <div class="error-block" *ngIf="VehicleName.invalid && nextClicked">
+                              Please fill name of car
+                            </div>
+                          </div>
+                        
+                          <div class="form-group col-6">
+                            <label>Brand</label>
+                            <input type="text" class="form-control" formControlName="Brand" >
+                            <div class="error-block" *ngIf="Brand.invalid && nextClicked">
+                              Please fill name of car brand
+                            </div>
+                          </div>
+
+                        </div>
+                          <div class="form-group col-12">
+                            <label>Details</label>
+                            <input type="text" class="form-control" formControlName="Details"  [(ngModel)]="vehicleView.Details">
+                            <div class="error-block" *ngIf="Details.invalid && nextClicked">
+                              Please fill car details
+                            </div>
+                          </div>
+            
+                          <div class="form-group col-12">
+                            <label>Price</label>
+                            <input type="text" class="form-control"  formControlName="Price"   [(ngModel)]="vehicleView.Price">
+                            <div class="error-block" *ngIf="Price.invalid && nextClicked">
+                              Please fill rent price per day
+                            </div>
+                          </div>
+          
+                          <div class="form-group col-12">
+                            <label>Fuel type</label>
+                            <input type="text" class="form-control" formControlName="Fuel_Type">
+                            <div class="error-block" *ngIf="Fuel_Type.invalid && nextClicked">
+                              Please fill car fuel type
+                            </div>
+                          </div>
+          
+                          <div class="form-group col-12">
+                            <label>Model year</label>
+                            <input type="text" class="form-control" formControlName="Model_Year">
+                            <div class="error-block" *ngIf="Model_Year.invalid && nextClicked">
+                              Please fill car manufacturer year
+                            </div>
+                          </div>
+          
+                          <div class="form-group col-12">
+                            <label>Seating Capasity</label>
+                            <input type="text" class="form-control" formControlName="Seating_Capasity">
+                            <div class="error-block" *ngIf="Seating_Capasity.invalid && nextClicked">
+                              Please fill number of seat
+                            </div>
+                          </div>
+          
+                          <div class="form-group col-12">
+                              <button type="button"  class="btn btn-primary btn-block"
+                              (click)="selectTab(1,VehicleDetails.valid)">Next</button>
+                          </div>
+                      </tab>
+            
+                      <tab heading="Photos"  formGroupName="VehiclePreView">
+                        <div class="form-group col-12">
+                          <div class="photo-control">
+                              <button class="mt-5" type="button">Upload</button> <br>
+                              This is under construction
+                          </div>
+                        </div>
+            
+                          <div class="form-group col-12">
+                            <button type="button" class="btn btn-primary btn-block"
+                            (click)="selectTab(0,true)">Back</button>
+                              <button type="reset" routerLink="/" class="btn btn-primary btn-block">cancel</button>
+                            <button type="submit" class="btn btn-primary btn-block">Save</button>
+                            
+                          </div>
+                      </tab>
+                    </tabset>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card-header">
+            <h1 class="footer_text">Your Vehicle Preview</h1>
+            <app-vehicle-card [vehicle]="vehicleView" hideIcons="true"></app-vehicle-card>
+          </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,113 @@
+[
+    {
+    "Id":1,
+    "VehicleName": "Lambo",
+    "Brand": "Lambo 2020 Black",
+    "Details": " most like by everyone",
+    "Price": 25000,
+    "Fuel_Type":"Deasel",
+    "Model_Year":2019,
+    "Seating_Capasity":6,
+    "Image":"lambo1"
+   
+    },
+    {
+      "Id":2,
+      "VehicleName": "Dark Knight",
+      "Brand": "Dark Knight 2019",
+      "Details": " most like by everyone",
+      "Price": 25500,
+      "Fuel_Type":"Deasel",
+      "Model_Year":2020,
+      "Seating_Capasity":3,
+      "Image":"r11"
+    },
+    {
+     "Id":3,
+    "VehicleName": "Mad Max",
+    "Brand": "Mad Max BLACK",
+    "Details": " most like by everyone",
+    "Price": 25000,
+    "Fuel_Type":"Deasel",
+    "Model_Year":2019,
+    "Seating_Capasity":3,
+    "Image":"r"
+    },
+    {
+      "Id":4,
+      "VehicleName": "Black Widow",
+    "Brand": "Black Widow BLACK",
+    "Details": " most like by everyone",
+    "Price": 7500,
+    "Fuel_Type":"Deasel",
+    "Model_Year":2021,
+    "Seating_Capasity":2,
+      "Image":"6"
+    },
+    {
+      "Id":5,
+      "VehicleName": "Nitro",
+      "Brand": "BMW BLACK",
+      "Details": " most like by everyone",
+      "Price": 25000,
+      "Fuel_Type":"Deasel",
+      "Model_Year":2019,
+      "Seating_Capasity":4,
+      "Image":"r8"
+    },
+    {
+      "Id":6,
+      "VehicleName": "BMW",
+      "Brand": "BMW BLACK",
+      "Details": " most like by everyone",
+      "Price": 35000,
+      "Fuel_Type":"Deasel",
+      "Model_Year":2019,
+      "Seating_Capasity":2,
+      "Image":"r4"
+      
+    },
+    {
+      "Id":7,
+      "VehicleName": "BMW",
+      "Brand": "BMW BLACK",
+      "Details": " most like by everyone",
+      "Price": 27000,
+      "Fuel_Type":"Deasel",
+      "Model_Year":2018,
+      "Seating_Capasity":6,
+      "Image":"r3"
+     
+    },
+    {
+      "Id":8,
+      "VehicleName": "BMW",
+    "Brand": "BMW BLACK",
+    "Details": " most like by everyone",
+    "Price": 25000,
+    "Fuel_Type":"Deasel",
+    "Model_Year":2019,
+    "Seating_Capasity":3,
+    "Image":"r12"
+    },
+    {
+      "Id":9,
+      "VehicleName": "BMW",
+      "Brand": "BMW BLACK",
+      "Details": " most like by everyone",
+      "Price": 25000,
+      "Fuel_Type":"Deasel",
+      "Model_Year":2019,
+      "Seating_Capasity":2
+    },
+    {
+      "Id":10,
+      "VehicleName": "BMW",
+    "Brand": "BMW BLACK",
+    "Details": " most like by everyone",
+    "Price": 25000,
+    "Fuel_Type":"Deasel",
+    "Model_Year":2019,
+    "Seating_Capasity":5
+    }
+  ]

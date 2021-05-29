@@ -1,0 +1,49 @@
+<body>
+    <div class="row">
+      <div class="col-md-6 p-3">
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:40px;color:white'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>
+     </div> 
+      <div class="col-md-6">
+        <div class="pull-right text-muted p-4" style="font-size: 20px; font-weight: bold;">Total Feedback: </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row mt-2 p-3  ">
+      <div class="col-md-12">
+        <table *ngIf = "feedbackArray?.length > 0; else noFeedback" class="table table-dark table-striped table-hover">
+          <thead class="thead-inverse thead-light">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phoneno</th>
+              <th>Postingdate</th>
+              <th>Message</th>
+              <th>Delete</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let feedback of feedbackArray">
+              <td>{{feedback.id}}</td>
+              <td>{{feedback.name}}</td>
+              <td>{{feedback.email}}</td> 
+              <td>{{feedback.phoneno}}</td>
+              <td>{{feedback.postingdate}} </td>
+              <td>{{feedback.message}}</td>
+              <td><i class='fas fa-trash-alt' style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #noFeedback>
+      <hr />
+      <h4>There are no feedback</h4>
+    </ng-template>
+    
+  </body>

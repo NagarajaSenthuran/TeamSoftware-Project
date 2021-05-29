@@ -1,0 +1,51 @@
+// :host-form{
+//    text-align: center;
+// }
+// input{
+//  border: 1px graysolid;
+//  padding: 3px;
+//  border-radius: 3px;
+//  margin: 10px;
+// }
+// b{
+//     color: rgb(72, 81, 105);
+//     margin: 20px;
+//     font-size: 26px;
+// }
+form{
+    border-radius:5px;
+    background-color: #bdf0fc;
+    padding: 30px;
+}
+input.error-block{
+    color: red;
+}
+
+input.ng-invalid{
+    border-color: red;
+}
+input.ng-touched{
+    border-color: red;
+}
+//   body{
+//      background-image:url("../../../assets/car.jpg") ;
+//      background-size: 100%;
+//      background-size: cover;
+//  }
+// body{
+//     background-image:url("../../../assets/A.jpg") ;
+//     background-size: 100%;
+//     background-size: cover;
+// }
+
+
+
+
+input.container
+{
+   // margin-top:10px;
+   // margin-bottom:10px;
+   margin-top: 40px;
+   margin-bottom: 20px;
+
+}

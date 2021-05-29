@@ -3,7 +3,7 @@
     vertical-align: middle;
     border-style: none;
     width: 100%;
-    height: 100%;
+  //  height: 100%;
 }
 
 .page_container
@@ -12,3 +12,63 @@
     margin-bottom:10px;
 
 }
+
+.txt1{
+    margin-bottom: 290px;
+    font-size: 50px;
+    color: orange;
+    font-weight: bold;
+    font-family:Cinzel Archivo_Black;
+   
+}
+
+.txt2{
+    margin-bottom: 120px;
+    font-size: 50px;
+    color: orange;
+    font-weight: bold;
+    font-family:Cinzel ;
+   
+}
+.txt3{
+    margin-bottom: 120px;
+    font-size: 50px;
+    color: orange;
+    font-weight: bold;
+    font-family:Cinzel ;
+   
+}
+p{
+    font-size: 35px;
+    color: white;
+    font-weight: normal;
+}
+.headani{
+    font-size: 50px;
+    color: rgb(252, 252, 252);
+    margin-bottom: 460px;
+   // margin-left: -700px;
+    font-family: Anton;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    -webkit-text-stroke: 0.3vw rgb(255, 0, 0);
+
+}
+
+.headani::before{
+    content: attr(data-text);
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0vw rgb(255, 0, 0);
+    border-right: 2px  orange;
+    //overflow: hidden;
+   // animation: animate 6s linear infinite;
+}
+
+
+

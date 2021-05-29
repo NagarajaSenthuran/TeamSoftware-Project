@@ -1,11 +1,24 @@
-<div class="container">
-  <div class="card inner-main">
-    <div class="card-header">
-      User Profile
+<body class="page_container">
+  <div class="container">
+    <div class="card">
+      <div class="">
+        <div class="card-header">
+          User Profile
+        </div>
+        <div class="card-body">
+          <p class="card-text">Name: {{UserProfile?.name}}</p>
+          <p class="card-text">Email: {{UserProfile?.email}}</p>
+        </div>
+       
+      </div>
+      
     </div>
-    <div class="card-body">
-      <p class="card-text">Name: <strong>{{UserProfile?.name}}</strong></p>
-      <p class="card-text">Email: <strong>{{UserProfile?.email}}</strong></p>
+    <p class="text">
+      WEL COME TO OUR WEB SITE
+    </p>
+    <div>
+      <a href="/vehicle-list" class="button_a">Rent Now!</a>
     </div>
   </div>
-</div>
+  
+</body>

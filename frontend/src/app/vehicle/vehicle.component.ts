@@ -14,8 +14,8 @@ export class VehicleComponent implements OnInit {
   constructor(private http: HttpClient, private vehiclesService:VehiclesService) { }
 
   ngOnInit(): void {
-    this.vehiclesService.getAllVehicles().subscribe(res=>{
+  // this.vehiclesService.getAllVehicles().subscribe(res=>{
      // this.vehicleArray = res.response.vehicles
-    })
+    //})
   }
 }

@@ -1,0 +1,82 @@
+.card-img-wrapper{
+    overflow: hidden;
+    position: relative;
+    border-radius: 25px 25px 0px 0px;
+  }
+  
+  .card:hover img{
+    transform: scale(1.2,1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    height: 200px;
+    opacity: .7;
+    border-radius: 25px 25px 0px 0px;
+  }
+  
+  .card img{
+    transform: scale(1,1);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    height: 210px;
+    border-radius: 25px 25px 0px 0px;
+    
+  }
+  
+  .member-icons{
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 0;
+  }
+  
+  .card-img-wrapper:hover .member-icons{
+    bottom: 0;
+    opacity: 1;
+  }
+  
+  .animate{
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card{
+    border-radius: 25px;
+    width: 330px;
+    height: 400px;
+    color: #000;
+  }
+
+  .button_a{
+    background-color: black;
+    color: blanchedalmond;
+    padding: 15px 20px;
+    border-radius: 0px 0px 25px 25px ;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
+ 
+  .card:hover{
+    background-color: rgb(31, 30, 30);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 1s ease;
+    
+  }
+
+ .card-body{
+   text-align: justify;
+ }
+
+ .card-body h1 {
+  color: #0069d9;
+  font-weight: bold;
+}
+
+.font-highlight {
+  font-style: italic;
+  color: red;
+}
