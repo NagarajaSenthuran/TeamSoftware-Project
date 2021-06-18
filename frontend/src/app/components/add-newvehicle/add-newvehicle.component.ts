@@ -1,3 +1,4 @@
+
 import { VehiclesService } from 'src/app/services/vehicles.service';
 import { Vehicle } from './../../model/vehicle';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -22,17 +23,22 @@ export class AddNewvehicleComponent implements OnInit {
   vehicle=new Vehicle();
 
   vehicleView :IVehicleBase={
-    Id: null,
-    VehicleName: '',
-    Brand: null,
-    Details: null,
-    Price: null,
-    Fuel_Type:null,
-    Model_Year:null,
-    Seating_Capasity:null,
-    Image:null
-    
+    id: null,
+    vehicle_name: '',
+    vehicle_brand: null,
+    vehicle_overview: null,
+    price_per_day: null,
+    fuel_type:null,
+    model_year:null,
+    seating_capacity:null,
+    veh_img:'',
+    is_available:null,
   };
+  files: any;
+  form: FormGroup;
+
+  
+  
   constructor(private alertify:AlertifyService, private fb: FormBuilder,private router: Router, private vehiclesService:VehiclesService) { }
 
   ngOnInit(): void {
@@ -46,16 +52,17 @@ export class AddNewvehicleComponent implements OnInit {
   
     this.addvehicleForm = this.fb.group({
         VehicleDetails:this.fb.group({
-          VehicleName:['',Validators.required],
-          Brand:['',Validators.required],
-          Details:['',Validators.required],
-          Price:['',Validators.required],
-          Fuel_Type:['',Validators.required],
-          Model_Year:['',Validators.required], 
-          Seating_Capasity:['',Validators.required],
+          vehicle_name:['',Validators.required],
+          vehicle_brand:['',Validators.required],
+          vehicle_overview:['',Validators.required],
+          price_per_day:['',Validators.required],
+          fuel_type:['',Validators.required],
+          model_year:['',Validators.required], 
+          seating_capacity:['',Validators.required],
+        //  is_available:['',Validators.required],
       }),
       VehiclePreView:this.fb.group({
-        image:['',Validators.required]
+        veh_img:['',Validators.required]
       })
 
     });
@@ -67,57 +74,83 @@ export class AddNewvehicleComponent implements OnInit {
     return this.addvehicleForm.controls.VehicleDetails as FormGroup;
   }
 
-  get VehicleName() {
-    return this.VehicleDetails.controls.VehicleName as FormControl;
+  get VehiclePreView(){
+    return this.addvehicleForm.controls.VehiclePreView as FormGroup;
   }
-  get Brand() {
-    return this.VehicleDetails.controls.Brand as FormControl;
+
+
+
+  get vehicle_name() {
+    return this.VehicleDetails.controls.vehicle_name as FormControl;
   }
-  get Details() {
-    return this.VehicleDetails.controls.Details as FormControl;
+  get vehicle_brand() {
+    return this.VehicleDetails.controls.vehicle_brand as FormControl;
   }
-  get Price() {
-    return this.VehicleDetails.controls.Price as FormControl;
+  get vehicle_overview() {
+    return this.VehicleDetails.controls.vehicle_overview as FormControl;
   }
-  get Fuel_Type() {
-    return this.VehicleDetails.controls.VehicleName as FormControl;
+  get price_per_day() {
+    return this.VehicleDetails.controls.price_per_day as FormControl;
   }
-  get Model_Year() {
-    return this.VehicleDetails.controls.Model_Year as FormControl;
+  get fuel_type() {
+    return this.VehicleDetails.controls.fuel_type as FormControl;
   }
-  get Seating_Capasity() {
-    return this.VehicleDetails.controls.Seating_Capasity as FormControl;
+  get model_year() {
+    return this.VehicleDetails.controls.model_year as FormControl;
+  }
+  get seating_capacity() {
+    return this.VehicleDetails.controls.seating_capacity as FormControl;
+  }
+   get is_available() {
+  return this.VehicleDetails.controls.is_available as FormControl;
+  }
+
+  get veh_img() {
+    return this.VehiclePreView.controls.veh_img as FormControl;
   }
     
   onBack() {
-    this.router.navigate(['/']);
+     this.router.navigate(['/']);
   }
 
   onSubmit() {
     this.nextClicked=true;
     if (this.allTabsValid()) {
-      this.mapVehicle();
-      this.vehiclesService.addVehicle(this.vehicle);
-      this.alertify.success('Congrats, form Submitted');
-      //console.log('VehicleName='+ this.addvehicleForm.value.VehicleDetails.VehicleName);
-      console.log(this.addvehicleForm);
-      this.router.navigate(['/vehicle-list']);
+      
+      
+      // formdata.append("data",JSON.stringify(this.vehicle));
+       this.mapVehicle();
+      this.vehiclesService.addVehicle(this.vehicle).subscribe(res=>{
+        if (res)
+        {
+          this.alertify.success('Congrats, form Submitted');
+          //console.log('VehicleName='+ this.addvehicleForm.value.VehicleDetails.VehicleName);
+          console.log(this.addvehicleForm);
+          this.router.navigate(['/vehicle-list']);
+        }
+      })
+    
     }
     else {
       this.alertify.error('Please review the form and provide all valid entries');
     }
+
   }
 
-  mapVehicle(): void{
-    this.vehicle.Id = this.vehiclesService.newVehID();
-    this.vehicle.VehicleName = this.VehicleName.value;
-    this.vehicle.Brand = this.Brand.value;
-    this.vehicle.Details = this.Details.value;
-    this.vehicle.Price = this.Price.value;
-    this.vehicle.Fuel_Type = this.Fuel_Type.value;
-    this.vehicle.Model_Year = this.Model_Year.value;
-    this.vehicle.Seating_Capasity = this.Seating_Capasity.value;
+  
 
+
+  mapVehicle(): void{
+    this.vehicle.id = this.vehiclesService.newVehID();
+    this.vehicle.vehicle_name = this.vehicle_name.value;
+    this.vehicle.vehicle_brand = this.vehicle_brand.value;
+    this.vehicle.vehicle_overview = this.vehicle_overview.value;
+    this.vehicle.price_per_day = this.price_per_day.value;
+    this.vehicle.fuel_type = this.fuel_type.value;
+    this.vehicle.model_year = this.model_year.value;
+    this.vehicle.seating_capacity = this.seating_capacity.value;
+   //  this.vehicle.is_available = this.is_available.value;
+    this.vehicle.veh_img = this.veh_img.value;
   }
 
 
@@ -136,5 +169,21 @@ export class AddNewvehicleComponent implements OnInit {
     }
   }
 
+  get f(){
+    return this.form.controls;
+  }
+
+  UploadImg(event){
+    this.files = event.target.files[0];
+    console.log(this.files);
+  }
   
+
+
+  onSubmitImg(){
+    const formdata = new FormData();
+    formdata.append("veh_img",this.files,this.files.name);
+    this.vehiclesService.uploadData(formdata).subscribe(res=>{
+    })
+  }
 }

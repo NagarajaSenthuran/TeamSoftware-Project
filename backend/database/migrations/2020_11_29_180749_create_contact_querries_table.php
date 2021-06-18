@@ -16,7 +16,7 @@ class CreateContactQuerriesTable extends Migration
         Schema::create('contact_querries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->nullable();;
+            $table->string('email')->nullable();
             $table->integer('phone_num');
             $table->string('message');
             $table->date('Posting_date',0);

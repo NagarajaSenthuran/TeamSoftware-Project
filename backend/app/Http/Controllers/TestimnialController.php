@@ -14,7 +14,7 @@ class TestimnialController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Testimnial::all(), 200);
     }
 
     /**
@@ -35,7 +35,8 @@ class TestimnialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $testimnial = Testimnial::create($request->all());
+        return response($testimnial, 201);
     }
 
     /**
@@ -44,9 +45,12 @@ class TestimnialController extends Controller
      * @param  \App\Models\Testimnial  $testimnial
      * @return \Illuminate\Http\Response
      */
-    public function show(Testimnial $testimnial)
-    {
-        //
+    public function getTestimnialById($id) {
+        $testimnial = Testimnial::find($id);
+        if(is_null($testimnial)) {
+            return response()->json(['message' => 'Testimnial Not Found'], 404);
+        }
+        return response()->json($testimnial::find($id), 200);
     }
 
     /**
@@ -67,9 +71,14 @@ class TestimnialController extends Controller
      * @param  \App\Models\Testimnial  $testimnial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testimnial $testimnial)
+    public function update(Request $request,  $id)
     {
-        //
+        $testimnial = Testimnial::find($id);
+        if(is_null($testimnial)) {
+            return response()->json(['message' => 'Testimnial Not Found'], 404);
+        }
+        $testimnial->update($request->all());
+        return response($testimnial, 200);
     }
 
     /**
@@ -78,8 +87,13 @@ class TestimnialController extends Controller
      * @param  \App\Models\Testimnial  $testimnial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimnial $testimnial)
+    public function destroy(Request $request, $id)
     {
-        //
+        $testimnial = Testimnial::find($id);
+        if(is_null($testimnial)) {
+            return response()->json(['message' => 'Testimnial Not Found'], 404);
+        }
+        $testimnial->delete();
+        return response()->json(null, 204);
     }
 }

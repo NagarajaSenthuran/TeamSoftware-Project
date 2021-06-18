@@ -17,10 +17,10 @@ import { BookingComponent } from './booking/booking.component';
 import { HomeComponent } from './home/home.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
-import { TestimonialComponent } from './testimonial/testimonial.component';
+
 import { AboutComponent } from './about/about.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //anguar material
 import {MatButtonModule} from '@angular/material/button';
@@ -55,6 +55,12 @@ import { SortPipe } from './Pipes/sort.pipe';
 import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-cotact-quarry.component';
 
 
+//npm i @swimlane/ngx-charts --save
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BarChartsComponent } from './home-admin/bar-charts/bar-charts.component';
+import { MaterialCssVarsModule, MaterialCssVarsService } from 'angular-material-css-vars';
+import { DashbordComponent } from './home-admin/dashbord/dashbord.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +73,6 @@ import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-
     HomeComponent,
     FeedbackComponent,
     VehicleComponent,
-    TestimonialComponent,
     AboutComponent,
     ContactsViewComponent,
     ViewVehiclesComponent,
@@ -81,7 +86,10 @@ import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-
     VehicleDetailsComponent,
     FilterPipe,
     SortPipe,
-    ViewCotactQuarryComponent
+    ViewCotactQuarryComponent,
+    BarChartsComponent,
+    DashbordComponent,
+    
   
    
   ],
@@ -102,7 +110,16 @@ import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-
     MatSelectModule,
     MatCardModule,
     TabsModule.forRoot(),
-    NgxGalleryModule 
+    NgxGalleryModule ,
+    NgxChartsModule,
+    MaterialCssVarsModule.forRoot({
+      // all optional
+      isAutoContrast: true,
+      darkThemeClass: 'isDarkTheme',
+      lightThemeClass: 'isLightTheme',
+      // ...
+    })
+    //BrowserAnimationsModule
   ],
   providers: [
     {
@@ -112,7 +129,8 @@ import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-
     },
     VehiclesService,
     AlertifyService,
-    VehiclesDetailsResolverService
+    VehiclesDetailsResolverService,
+    MaterialCssVarsService
   ],
   bootstrap: [AppComponent]
 })

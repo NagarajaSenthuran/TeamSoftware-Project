@@ -10,10 +10,21 @@ export class ViewFeedbackComponent implements OnInit {
   feedbackArray :any;
   constructor(private feedbackService: FeedbackService) {}
 
-  ngOnInit(): void {this.feedbackService.getAllFeedback().subscribe(res=>{
-    console.log(res);
-    this.feedbackArray = res
-   })
+  ngOnInit(): void {
+    this.getFeedbackData();
+   }
+
+   getFeedbackData(){
+     this.feedbackService.getAllFeedback().subscribe(res=>{
+     //console.log(res);
+     this.feedbackArray = res;
+     });
+   }
+
+   deleteData(id){
+    this.feedbackService.deleteData(id).subscribe(res=>{
+    this.getFeedbackData();
+    });
+   }
 }
 
-}

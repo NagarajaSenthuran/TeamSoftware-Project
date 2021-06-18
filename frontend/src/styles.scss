@@ -10,13 +10,16 @@ label{font-weight:500;}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
-@import 'assets/tabs.scss';
+@import 'assets/form.scss';
 @import 'assets/form.scss';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 
 // new fonts from Google Fonts
 @import '../src/assets/font/fonts/font.css';
+
+//import custom scss folder files
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

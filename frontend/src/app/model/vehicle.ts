@@ -1,12 +1,13 @@
 import { IVehicleBase } from './ivehiclebase';
 export class Vehicle implements IVehicleBase{
-    Id: number;
-    VehicleName: string;
-    Brand: string;
-    Details: string;
-    Price: number;
-    Fuel_Type:string;
-    Model_Year:number;
-    Seating_Capasity:number;
-    Image?: string;
+    id: number;
+    vehicle_name: string;
+    vehicle_brand: string;
+    vehicle_overview: string;
+    price_per_day: number;
+    fuel_type:string;
+    model_year:number;
+    seating_capacity:number;
+    veh_img?: string;
+    is_available:boolean;
 }

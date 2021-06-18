@@ -11,10 +11,20 @@ export class ViewCotactQuarryComponent implements OnInit {
   constructor(private contactService:ContactService) { }
 
   ngOnInit(): void {
-    this.contactService.getAllContacts().subscribe(res=>{
-      console.log(res);
-      this.contactArray = res
-     })
+    this.getContactData();
   }
+
+  getContactData(){
+    this.contactService.getAllContacts().subscribe(res=>{
+    //console.log(res);
+    this.contactArray = res;
+    });
+  }
+
+  deleteData(id){
+    this.contactService.deleteData(id).subscribe(res=>{
+    this.getContactData();
+    });
+   }
 
 }

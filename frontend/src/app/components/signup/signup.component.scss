@@ -6,19 +6,19 @@
 }
 
 .card{
-    height: 100%;
-    background-image:url("../../../assets/d8.jpg") ;
-    background-color: rgba(30, 10, 214, 0.2);
+    height: 1000px;
+    background-image:url("../../../assets/s.jpg") ;
+    background-color: rgba(5, 2, 31, 0.2);
 }
 
 .card-body{
-  background-color: rgba(107, 96, 204, 0.116);
+  background-color: rgba(19, 0, 194, 0.24);
   
 }
 
 .form-control{
-    background-color: rgba(92, 75, 247, 0.1);
-    color: white;
+    background-color: rgba(248, 242, 242, 0.856);
+    color: rgb(8, 8, 8);
 }
 
 form button {
@@ -33,12 +33,13 @@ width: 520px;
 cursor: pointer;
 font-size: 18px;
 transition-duration: 0.25s;
-background-color: rgb(139, 146, 245);
+background-color: rgb(22, 141, 42);
  
 }
 
 form input:hover {
     background-color: rgba(12, 12, 12, 0.774);
+    color: rgb(255, 255, 255);
   }
   form input:focus {
     background-color: rgb(244, 252, 251);
@@ -50,13 +51,13 @@ form input:hover {
   form input {
 appearance: none;
 outline: 0;
-border: 1px solid rgba(255, 255, 255, 0.692);
+border: 1px solid rgba(252, 249, 249, 0.692);
 border-radius: 3px;
 padding: 10px 15px;
 margin: 0 auto 10px auto;
 display: block;
 font-size: 18px;
-color: white;
+color: rgb(0, 0, 0);
 -webkit-transition-duration: 0.25s;
 transition-duration: 0.25s;
 font-weight: 300;

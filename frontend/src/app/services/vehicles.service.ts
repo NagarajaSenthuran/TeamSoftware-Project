@@ -1,6 +1,6 @@
 import { Vehicle } from './../model/vehicle';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IVehicle } from './../IVehicle.interface';
@@ -15,41 +15,42 @@ export class VehiclesService {
   constructor(private http: HttpClient) { }
 
   getVehicle(id: number) {
-    return this.getAllVehicles().pipe(
-      map(vehiclesArray => {
-        return vehiclesArray .find(p => p.Id === id);
-      })
-    );
+    return this.http.get<Vehicle>('http://localhost:8000/api/vehicles/'+id.toString());
+    // return this.getAllVehicles().pipe(
+    //   map(vehiclesArray => {
+    //     return vehiclesArray .find(p => p.id === id);
+    //   })
+    // );
   }
 
   getAllVehicles(): Observable<Vehicle[]> {
-    //return this.http.get('http://localhost:8000/api/vehicles');
-    return this.http.get('data/properties.json').pipe(
-      map(data => {
-      const vehiclesArray: Array<Vehicle> = [];
-      const localProperties=JSON.parse(localStorage.getItem('newVeh'));
+    return this.http.get<Vehicle[]>('http://localhost:8000/api/vehicles');
+  //   return this.http.get('data/properties.json').pipe(
+  //     map(data => {
+  //     const vehiclesArray: Array<Vehicle> = [];
+  //     const localProperties=JSON.parse(localStorage.getItem('newVeh'));
       
-      if(localProperties){
-        for (const id in localProperties) {
-          if (localProperties.hasOwnProperty(id) ) {
-            vehiclesArray.push(localProperties[id]);
-          }
-       //   vehiclesArray.push(localProperties [id]);
-        }
-      }
+  //     if(localProperties){
+  //       for (const id in localProperties) {
+  //         if (localProperties.hasOwnProperty(id) ) {
+  //           vehiclesArray.push(localProperties[id]);
+  //         }
+  //      //   vehiclesArray.push(localProperties [id]);
+  //       }
+  //     }
 
 
-      for (const id in data) {
-        if (data.hasOwnProperty(id) ) {
-          vehiclesArray.push(data[id]);
-        }
-        //vehiclesArray.push(data[id]);
-      }
+  //     for (const id in data) {
+  //       if (data.hasOwnProperty(id) ) {
+  //         vehiclesArray.push(data[id]);
+  //       }
+  //       //vehiclesArray.push(data[id]);
+  //     }
      
-      return vehiclesArray;
-      })
-    );
-   return this.http.get<Vehicle[]>('data/properties.json'); 
+  //     return vehiclesArray;
+  //     })
+  //   );
+  //  return this.http.get<Vehicle[]>('data/properties.json'); 
     }
 
     saveVehicleForm(form){
@@ -91,12 +92,20 @@ export class VehiclesService {
     }
   }
 
-  addVehicle(vehicle:Vehicle){
-    let newVeh =[vehicle];
-    //add new vehicle in array if newVeh already exists in local storage
-    if(localStorage.getItem('newVeh')){
-      newVeh = [vehicle, ...JSON.parse(localStorage.getItem('newVeh'))];
-    }
-    localStorage.setItem('newVeh',JSON.stringify(newVeh));
+  addVehicle(data){
+    return this.http.post('http://localhost:8000/api/vehicles',data);
+  //   let newVeh =[vehicle];
+  //   //add new vehicle in array if newVeh already exists in local storage
+  //   if(localStorage.getItem('newVeh')){
+  //     newVeh = [vehicle, ...JSON.parse(localStorage.getItem('newVeh'))];
+  //   }
+  //   localStorage.setItem('newVeh',JSON.stringify(newVeh));
+  }
+
+  uploadData(data){
+    const headers = new HttpHeaders();
+    return this.http.post('http://localhost:8000/api/sample-restful-apis', data ,{
+      headers:headers
+    });
   }
 }

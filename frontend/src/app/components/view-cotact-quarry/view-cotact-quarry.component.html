@@ -1,5 +1,6 @@
-
-<body class="page_container">
+<app-dashbord></app-dashbord>
+<body class="page_container page-top">
+ 
     <div class="row">
       <div class="col-md-6 p-4">
           <li class="">
@@ -34,7 +35,7 @@
               <td>{{contact.phone_num}}</td>
               <td>{{contact.message}} </td>
               <td>{{contact.Posting_date}}</td>
-             <td><i class='fas fa-trash-alt' style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+             <td><i class='fas fa-trash-alt' (click)="deleteData(contact.id)"  style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
             </tr>
           </tbody>
         </table>

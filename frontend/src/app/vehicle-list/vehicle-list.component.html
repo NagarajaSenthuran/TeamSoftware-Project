@@ -1,24 +1,39 @@
   <body class="page_container">
-     <label >Filter Name:</label>
-     <input [(ngModel)]='VehicleName'>
-     <button class="btn-outline-primary" type="button" (click)="onNameFilter()">Search</button>
-     <button class="btn-outline-primary" type="button" (click)="onNameFilterClear()">Clear</button>
-   
-     <label>&nbsp; &nbsp; &nbsp; &nbsp; Sort by &nbsp;</label>
-     <select [(ngModel)] = 'SortbyParam'>
-       <option value="Price">Price</option>
-       <option value="Model_Year">Model Year</option>
-     </select>
-     <button type="button" (click) = "onSortDirection()"> 
-       <i *ngIf="SortDirection==='asc'" class="fas fa-sort-alpha-down"></i>
-      <i *ngIf="SortDirection==='desc'" class="fas fa-sort-alpha-up"></i>
-    </button>
-   <div class="row">
-        <div *ngFor="let vehicle of vehicles|filter:SearchName:'VehicleName'|sort:[SortbyParam,SortDirection]"
-         class="col-sm-3">
-          <div class=" p-3 mb-2">
-              <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
+    <div>
+      <div class="row">
+        <div class="input-group col-4">
+          <label >Filter Name:</label>
+          <input [(ngModel)]='VehicleName' class="form-control search-menu" placeholder="Search...">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
           </div>
+          <button class="btn-outline-primary" type="button" (click)="onNameFilter()">Search</button>
+          <button class="btn-outline-primary" type="button" (click)="onNameFilterClear()">Clear</button> 
+         </div>
+        <div class="input-group col-4">
+          <label>&nbsp; &nbsp; &nbsp; &nbsp; Sort by &nbsp;</label>
+          <select [(ngModel)] = 'SortbyParam' >
+            <option value="price_per_day">Price</option>
+            <option value="model_year">Model Year</option>
+          </select>
+          <button type="button" (click) = "onSortDirection()"> 
+            <i *ngIf="SortDirection==='asc'" class="fas fa-sort-alpha-down"></i>
+           <i *ngIf="SortDirection==='desc'" class="fas fa-sort-alpha-up"></i>
+         </button>
+        </div>
       </div>
-      </div>
+       
+      
+     <div class="row">
+          <div *ngFor="let vehicle of vehicles|filter:SearchName:'vehicle_name'|sort:[SortbyParam,SortDirection]"
+           class="col-sm-3">
+            <div class=" p-3 mb-2">
+                <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
+            </div>
+        </div>
+        </div>
+    </div>
+   
   </body>

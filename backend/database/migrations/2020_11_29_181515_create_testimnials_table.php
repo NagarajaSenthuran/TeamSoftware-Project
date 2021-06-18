@@ -15,6 +15,11 @@ class CreateTestimnialsTable extends Migration
     {
         Schema::create('testimnials', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('phoneno');
+            $table->Date('postingdate');
+            $table->string('message');
             $table->timestamps();
         });
     }

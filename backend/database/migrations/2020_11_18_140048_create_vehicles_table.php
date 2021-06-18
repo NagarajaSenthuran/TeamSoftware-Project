@@ -22,9 +22,10 @@ class CreateVehiclesTable extends Migration
             $table->string('fuel_type');
             $table->integer('model_year');
             $table->integer('seating_capacity');
-            $table->string('veh_img');
-            $table->date('registration_date',0);
-            $table->date('updation_date',0);
+            $table->string('veh_img')->nullable();
+            $table->boolean('is_available')->nullable();
+            $table->date('registration_date',0)->nullable();
+            $table->date('updation_date',0)->nullable();
             $table->timestamps();
         });
     }

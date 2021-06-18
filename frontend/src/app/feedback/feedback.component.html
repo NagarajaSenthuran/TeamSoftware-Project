@@ -1,36 +1,36 @@
-<div class="page_container">
+<!-- <div class="page_container">
       
     
     <div class="container">
-        <!-- <img class="img" src="../../assets/car.jpg"width="1200" height="650" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">  -->
+    <img class="img" src="../../assets/car.jpg"width="1200" height="650" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"> 
         <div class="row">
             <div class="col-md-6-offset-md-6">
                 <form [formGroup]="feedbackForm"(ngSubmit)='onSubmit(feedbackForm)'>
-             <!-- <form [Form]="feedbackForm"(ngSubmit)='onSubmit(Form)' #Form="ngForm" > -->
-                 <h2 class="text-center">Feedback Form</h2>
-                 <!-- <h3 class="text-align-center"></h3> -->
+            <form [Form]="feedbackForm"(ngSubmit)='onSubmit(Form)' #Form="ngForm" > -->
+                 <!-- <h2 class="text-center">Feedback Form</h2>
+                  <h3 class="text-align-center"></h3>
                  <div class="form-group">
                     <label >Enter Name</label>
-                     <input type="text" class="form-control"placeholder="Name" formControlName="name">
+                     <input type="text" class="form-control"placeholder="Name" formControlName="name"> -->
                      <!-- <span *ngIf="!propName.valid && propName.touched" class="error-block">
                          Please provide name
                      </span>  -->
                      <!-- <span *ngIf="!form.get(userName).valid && form.get(userName).touched" class="error-block">
                         Please provide name
-                    </span> -->
+                    </span> 
                  </div>
                  <div class="form-group">
                     <label >Enter E-Mail</label>
                     <input type="email" class="form-control" placeholder="Email" formControlName="email">
-                    <!-- <input type="email" class="form-control" required email #email="ngModel" placeholder="Email" name="email" ngModel> -->
+                    <input type="email" class="form-control" required email #email="ngModel" placeholder="Email" name="email" ngModel> -->
                     <!-- <span *ngIf="email.errors.required">
                         Please provide valid email id
-                    </span>  -->
+                    </span>  
                 </div>
                 <div class="form-group">
                     <label >Enter Phone No</label>
                     <input type="text" class="form-control" placeholder="Phone No" formControlName="phoneno">
-                    <!-- <input type="text" class="form-control" required minlength="10" maxlength="13" pattern="^[0-9]+$" placeholder="Phone No" name="phoneno" ngModel> -->
+                  <input type="text" class="form-control" required minlength="10" maxlength="13" pattern="^[0-9]+$" placeholder="Phone No" name="phoneno" ngModel> 
                 </div>
                 <div class="form-group">
                     <label>Posting Date </label>
@@ -42,13 +42,68 @@
                 </div>
                
                 <div class="text-center">
-                    <!-- <button [disabled]="!feedbackForm.valid" type="Submit" class="btn btn-primary mr-2">Submit</button> -->
-                    <!-- <button [disabled]="!Form.valid" type="Submit" class="btn btn-primary mr-2">Submit</button> -->
-                    <button type="Submit" class="btn btn-primary mr-2">Submit</button>
+                     <button [disabled]="!feedbackForm.valid" type="Submit" class="btn btn-primary mr-2">Submit</button> 
+                    <button [disabled]="!Form.valid" type="Submit" class="btn btn-primary mr-2">Submit</button>                     <button type="Submit" class="btn btn-primary mr-2">Submit</button>
                     <button type="reset" class="btn btn-primary">Cancel</button>
                 </div>
              </form>
             </div>
         </div> 
     </div>
-    </div>
+    </div> -->
+
+    <body class="page_container">
+        <div class="row  mb-5">
+              <div class="col-8 ">
+                <div class=" card col-8 ">
+                    <div class="card-header">
+                      Feedback
+                    </div>
+                    <div class="card-body ">
+                      <form (ngSubmit)="insretData()">
+      
+                              <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" name="name" [(ngModel)]="feedback.name" placeholder="Name"> 
+                                 
+                                </div>
+                              
+                                <div class="form-group col-6">
+                                  <label for="email">E-Mail</label>
+                                  <input type="text" class="form-control" name="email" [(ngModel)]="feedback.email" placeholder="Enter E-Mail"> 
+                                
+                                </div>
+      
+                              </div>
+                              <div class="row">
+                                <div class="form-group col-12">
+                                    <label for="phoneno">Phone Number</label>
+                                    <input type="text" class="form-control" name="phoneno"  [(ngModel)]="feedback.phoneno" placeholder="Phone Number" required autofocus>
+                                </div>
+                              </div>
+                                
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label for="postingdate">Posting date</label>
+                                        <input type="date" class="form-control" name="postingdate"  [(ngModel)]="feedback.postingdate" placeholder="Posting Date" required autofocus>
+                                        
+                                    </div>
+                                </div>
+                        
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label for="message">Feedback</label>
+                                        <textarea type="text" name="message" class="form-control" [(ngModel)]="feedback.message" placeholder="Message"></textarea>              
+                                    </div>
+                                </div>
+                
+                                <div class="form-group col-12">
+                                    <button type="submit" class="btn btn-block btn-primary">My Feedback</button>
+                                </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </body>

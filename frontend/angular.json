@@ -35,7 +35,9 @@
               "src/assets/font/css/font-awesome.min.css",
               "src/styles.scss"
             ],
-            "scripts": ["node_modules/sweetalert2/dist/sweetalert2.js"]
+            "scripts": ["node_modules/sweetalert2/dist/sweetalert2.js",
+                       "node_modules/jquery/dist/jquery.min.js",
+                      "src/app/home-admin/script.js"]
           },
           "configurations": {
             "production": {
@@ -99,8 +101,9 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
+              
             ],
-            "scripts": []
+            "scripts": ["src/app/home-admin/script.js"]
           }
         },
         "lint": {

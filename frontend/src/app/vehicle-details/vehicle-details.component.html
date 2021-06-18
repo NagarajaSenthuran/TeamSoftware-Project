@@ -3,20 +3,20 @@
     <div class="col-sm-4 p-0">
       <div class="card">
         <div class="card-img-wrapper">
-            <img *ngIf="vehicle?.Image" class="card-img-top" src="assets/{{vehicle.Image}}.jpg">
-            <img *ngIf="!vehicle?.Image" class="card-img-top" src="assets/emty.png">
+            <img *ngIf="vehicle?.veh_img" class="card-img-top" src="assets/{{vehicle.veh_img}}">
+            <img *ngIf="!vehicle?.veh_img" class="card-img-top" src="assets/emty.png">
         </div>
         <div class="card-body">
-          <h1 class="card-title">{{vehicle?.VehicleName}}</h1>
+          <h1 class="card-title">{{vehicle?.vehicle_name}}</h1>
           <div>
-              <strong>{{vehicle?.Details}} , {{vehicle?.Brand}} </strong>
+              <strong>{{vehicle?.vehicle_overview}} , {{vehicle?.vehicle_brand}} </strong>
           </div>
           <div>
-             <strong>in {{vehicle?.Model_Year}}</strong>
+             <strong>in {{vehicle?.model_year}}</strong>
           </div> <hr>
           <div>
               <strong> Model_Year: </strong>
-              {{vehicle?.Model_Year}} 
+              {{vehicle?.model_year}} 
           </div>
   
           <div>
@@ -25,7 +25,7 @@
           </div>
           <div>
               <strong>Vehicle Type: </strong>
-              {{vehicle?.Brand}}
+              {{vehicle?.vehicle_brand}}
           </div>
         </div>
         <div class="card-footer">
@@ -45,22 +45,22 @@
                 <div class="col-sm-6">
                     <div class="heading">
                         <strong>Vehicle Name</strong>
-                        <p>{{vehicle?.VehicleName}}</p>
+                        <p>{{vehicle?.vehicle_name}}</p>
                     </div>
   
                     <div class="heading">
                         <strong>Brand Name</strong>
-                        <p>{{vehicle?.Brand}}</p>
+                        <p>{{vehicle?.vehicle_brand}}</p>
                     </div>
   
                     <div class="heading">
                         <strong>Model year</strong>
-                        <p>{{vehicle?.Model_Year}}</p>
+                        <p>{{vehicle?.model_year}}</p>
                     </div>
   
                     <div class="heading">
                         <strong>FuelType</strong>
-                        <p>{{vehicle?.Fuel_Type}}</p>
+                        <p>{{vehicle?.fuel_type}}</p>
                     </div>
                 </div>
   
@@ -73,7 +73,7 @@
   
                     <div class="heading">
                         <strong>Detail</strong>
-                        <p>{{vehicle?.Details}}</p>
+                        <p>{{vehicle?.vehicle_overview}}</p>
                     </div>
   
                     <div class="heading">
@@ -82,7 +82,7 @@
                     </div>
                     <div class="heading">
                         <strong>Seating capasity</strong>
-                        <p>{{vehicle?.Seating_Capasity}}</p>
+                        <p>{{vehicle?.seating_capacity}}</p>
                     </div>
                     
                 </div>

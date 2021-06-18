@@ -13,7 +13,6 @@ import { BookingComponent } from './booking/booking.component';
 import { HomeComponent } from './home/home.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
-import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsViewComponent } from './components/contacts-view/contacts-view.component';
 import { ViewVehiclesComponent } from './components/view-vehicles/view-vehicles.component';
@@ -25,6 +24,9 @@ import { ViewFeedbackComponent } from './components/view-feedback/view-feedback.
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehiclesDetailsResolverService } from './vehicle-details/vehicles-details-resolver.service';
 import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-cotact-quarry.component';
+import { BarChartsComponent } from './home-admin/bar-charts/bar-charts.component';
+import { ViewBookingComponent } from './components/view-booking/view-booking.component';
+import { DashbordComponent } from './home-admin/dashbord/dashbord.component';
 
 const routes: Routes = [
  // { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -36,17 +38,22 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'feedback', component: FeedbackComponent },
-  { path: 'testiminial', component: TestimonialComponent },
+ 
   { path: 'vehicle', component: VehicleComponent },
   { path: 'view-contacts', component: ContactsViewComponent },
   { path: 'view-vehicle', component: ViewVehiclesComponent },
+  { path: 'view-booking', component: ViewBookingComponent },
   { path: 'add-vehicle', component: AddVehicleComponent },
   { path: 'add-newvehicle', component: AddNewvehicleComponent },
   { path: 'vehicle-list', component: VehicleListComponent },
-  { path: 'admin', component: HomeAdminComponent },
+  { path: 'admin', component: DashbordComponent },
   { path: 'view-feedback', component: ViewFeedbackComponent},
   { path: 'vehicle-detail/:id', component: VehicleDetailsComponent,resolve :{ve:VehiclesDetailsResolverService}},
   { path: 'view-contact-quarry', component: ViewCotactQuarryComponent},
+  { path: 'bar-chart', component: BarChartsComponent},
+  
+ 
+  
 ];
 
 @NgModule({

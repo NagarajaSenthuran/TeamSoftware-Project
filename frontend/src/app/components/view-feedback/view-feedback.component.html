@@ -1,4 +1,7 @@
+
+<app-dashbord></app-dashbord>
 <body>
+  <div class="page-top">
     <div class="row">
       <div class="col-md-6 p-3">
         <i class='fas fa-car' style='font-size:20px;color:red'></i>
@@ -35,7 +38,7 @@
               <td>{{feedback.phoneno}}</td>
               <td>{{feedback.postingdate}} </td>
               <td>{{feedback.message}}</td>
-              <td><i class='fas fa-trash-alt' style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+              <td><i class='fas fa-trash-alt' (click)="deleteData(feedback.id)" style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
             </tr>
           </tbody>
         </table>
@@ -45,5 +48,7 @@
       <hr />
       <h4>There are no feedback</h4>
     </ng-template>
+  </div>
+    
     
   </body>

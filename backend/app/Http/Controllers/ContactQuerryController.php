@@ -105,17 +105,27 @@ class ContactQuerryController extends Controller
      * @param  \App\Models\ContactQuerry  $contactQuerry
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactQuerry $contactQuerry)
+    public function destroy(Request $request, $id)
     {
-        $contactQuerry=ContactQuerry::find($id);
-        $result=$contactQuerry->delete();
-        if ($result)
-      {
-        return["Result"=>"message deleted successfully"];
-      }
-      else
-      {
-        return["Result"=>"delete operation failed"];
-      }
+    //     $contactQuerry=ContactQuerry::find($id);
+    //     $result=$contactQuerry->delete();
+    //     if ($result)
+    //   {
+    //     return["Result"=>"message deleted successfully"];
+    //   }
+    //   else
+    //   {
+    //     return["Result"=>"delete operation failed"];
+    //   }
+    $contactQuerry = ContactQuerry::find($id);
+    if(is_null($contactQuerry)) {
+        return response()->json(['message' => 'contactQuerry Not Found'], 404);
     }
+    $contactQuerry->delete();
+    return response()->json(null, 204);
+     }
+
+    
+
 }
+

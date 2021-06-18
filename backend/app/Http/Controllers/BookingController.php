@@ -14,10 +14,10 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Booking::all(), 200);
        // return Booking::all();
-       $booking = Booking::all();
-       return new BookingResource($booking);
+    //    $booking = Booking::all();
+    //    return new BookingResource($booking);
     }
 
     /**
@@ -39,21 +39,23 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+        $booking = Booking::create($request->all());
+        return response($booking, 201);
         //
-        $booking = new Booking;
-        $booking->Name=$request->Name;
-        $booking->User_email=$request->User_email;
-       // $booking->Vehicle_id = $request->Vehicle_id;
-        $booking->Start_date = $request->Start_date;
-        $booking->End_date = $request->End_date;
-        $booking->Message = $request->Message;
-        $booking->Car_Type = $request->Car_Type;
-        $booking->Status = $request->Status;
-        $booking->Posting_date = $request->Posting_date;
-        $booking->Registration_date = $request->Registration_date;
-        $booking->Updation_date = $request->Updation_date;
+                    //     $booking = new Booking;
+                    //     $booking->Name=$request->Name;
+                    //     $booking->User_email=$request->User_email;
+                    //    // $booking->Vehicle_id = $request->Vehicle_id;
+                    //     $booking->Start_date = $request->Start_date;
+                    //     $booking->End_date = $request->End_date;
+                    //     $booking->Message = $request->Message;
+                    //     $booking->Car_Type = $request->Car_Type;
+                    //     $booking->Status = $request->Status;
+                    //     $booking->Posting_date = $request->Posting_date;
+                    //     $booking->Registration_date = $request->Registration_date;
+                    //     $booking->Updation_date = $request->Updation_date;
 
-        $result=$vehicle->save();
+                    //     $result=$vehicle->save();
         // if($result)
         // {
         //     return["Result"=>"Vehicle record created"];
@@ -62,7 +64,7 @@ class BookingController extends Controller
         //     return["Result"=>"error"];
         // }
 
-        return BookingResource::collection($booking->paginate());
+       // return BookingResource::collection($booking->paginate());
     }
 
     /**
@@ -75,8 +77,13 @@ class BookingController extends Controller
     {
         //
     }
-    public function getbyId($id=null) {
-        return $id?Booking::find($id):Booking::all();
+    public function getbyId($id) {
+        // return $id?Booking::find($id):Booking::all();
+        $booking = Booking::find($id);
+        if(is_null($booking)) {
+            return response()->json(['message' => 'Booking Not Found'], 404);
+        }
+        return response()->json($booking::find($id), 200);
     }
     /**
      * Show the form for editing the specified resource.
@@ -96,25 +103,30 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,  $id)
     {
-        //
-        $booking=Booking::find($request->id);
+        $booking = Booking::find($id);
+        if(is_null($booking)) {
+            return response()->json(['message' => 'Booking Not Found'], 404);
+        }
+        $booking->update($request->all());
+        return response($booking, 200);
+    //     $booking=Booking::find($request->id);
       
-        $booking->Name=$request->Name;
-        $booking->User_email=$request->User_email;
-       // $booking->Vehicle_id = $request->Vehicle_id;
-        $booking->Start_date = $request->Start_date;
-        $booking->End_date = $request->End_date;
-        $booking->Message = $request->Message;
-        $booking->Car_Type = $request->Car_Type;
-        $booking->Status = $request->Status;
-        $booking->Posting_date = $request->Posting_date;
-        $booking->Registration_date = $request->Registration_date;
-        $booking->Updation_date = $request->Updation_date;
+    //     $booking->Name=$request->Name;
+    //     $booking->User_email=$request->User_email;
+    //    // $booking->Vehicle_id = $request->Vehicle_id;
+    //     $booking->Start_date = $request->Start_date;
+    //     $booking->End_date = $request->End_date;
+    //     $booking->Message = $request->Message;
+    //     $booking->Car_Type = $request->Car_Type;
+    //     $booking->Status = $request->Status;
+    //     $booking->Posting_date = $request->Posting_date;
+    //     $booking->Registration_date = $request->Registration_date;
+    //     $booking->Updation_date = $request->Updation_date;
 
-        $result=$vehicle->save();
-        return BookingResource::collection($booking->paginate());
+    //     $result=$vehicle->save();
+    //     return BookingResource::collection($booking->paginate());
     }
 
     /**
@@ -123,11 +135,17 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         //
+        // $booking = Booking::find($id);
+        // $booking->delete();
         $booking = Booking::find($id);
+        if(is_null($booking)) {
+            return response()->json(['message' => 'Booking Not Found'], 404);
+        }
         $booking->delete();
+        return response()->json(null, 204);
        
     }
 }

@@ -1,6 +1,31 @@
 body{
-    background-image: url("../../assets/b14.jpg");
+    background-image: url("../../assets/d3.jpg");
     background-size: cover;
     background-size: 100%;
-    height: auto;
+    height: 100%;
 }
+
+.form-control {
+    color: rgb(252, 252, 252);
+    background-color: rgba(0,0,0,0.1);
+}
+
+.form-control:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+.btn{
+    background-color: rgb(1, 131, 40);
+}
+
+.card-body{
+    color: rgb(255, 255, 255);
+    background-color: rgba(26, 0, 172, 0.192);
+   
+}
+
+.card{
+    background-color: rgba(30, 20, 85, 0.1);
+    margin-left: 400px;
+}
+ 

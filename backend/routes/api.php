@@ -6,6 +6,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactQuerryController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\TestimnialController;
 
 Route::group([
     'middleware' => 'api',
@@ -45,3 +46,11 @@ Route::delete('contactQuarry/{id}', [ ContactQuerryController::class, 'destroy']
 Route::get('subscribe', [SubscribeController::class, 'show']);
 Route::post('subscribe', [SubscribeController::class, 'store']);
 Route::delete('subscribe/{id}', [ SubscribeController::class, 'destroy']);
+
+
+//testimonial
+Route::post('feedback', [ TestimnialController::class, 'store']);
+Route::get('feedback', [ TestimnialController::class, 'index']);
+Route::get('feedback/{id}', [ TestimnialController::class, 'getTestimnialById']);
+Route::put('feedback', [ TestimnialController::class, 'update']);
+Route::delete('feedback/{id}', [ TestimnialController::class, 'destroy']);

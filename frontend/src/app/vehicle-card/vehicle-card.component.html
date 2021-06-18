@@ -1,11 +1,11 @@
 
 <div class="card">
   <div class="card-img-wrapper">
-    <img *ngIf="vehicle.Image" class="card-img-top" src="assets/{{vehicle.Image}}.jpg">
-    <img *ngIf="!vehicle.Image" class="card-img-top" src="assets/emty.png">
+    <img *ngIf="vehicle.veh_img" class="card-img-top" src="assets/{{vehicle.veh_img}}">
+    <img *ngIf="!vehicle.veh_img" class="card-img-top" src="assets/emty.png">
     <ul *ngIf="!hideIcons" class="list-inline text-center member-icons animate">
       <li class="list-inline-item">
-        <button class="btn btn-primary" routerLink="/vehicle-detail/{{vehicle.Id}}"><i class="far fa-edit"></i></button>
+        <button class="btn btn-primary" routerLink="/vehicle-detail/{{vehicle.id}}"><i class="far fa-edit"></i></button>
       </li>
       <li class="list-inline-item">
         <button class="btn btn-primary"><i class="far fa-address-book"></i></button>
@@ -14,9 +14,9 @@
 
   </div>
   <div class="card-body p-2">
-      <h1>{{vehicle.VehicleName}}</h1>
-      <h2><span class="font-highlight">{{vehicle.Price}}.Rs</span>/Day</h2>
-      <p>{{vehicle.Details}}</p>
+      <h1>{{vehicle.vehicle_name}}</h1>
+      <h2><span class="font-highlight">{{vehicle.price_per_day}}.Rs</span>/Day</h2>
+      <p>{{vehicle.vehicle_overview}}</p>
   </div>
-  <div><a href="/vehicle-detail/{{vehicle.Id}}" class="button_a">View Details</a></div>
+  <div><a href="/vehicle-detail/{{vehicle.id}}" class="button_a">View Details</a></div>
 </div>

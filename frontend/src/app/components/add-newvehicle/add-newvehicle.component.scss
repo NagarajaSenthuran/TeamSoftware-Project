@@ -2,9 +2,10 @@ body{
   background-image:url("../../../assets/b6.jpg") ;
   background-size: 100%;
   background-size: cover;
-  height: auto;
+  height: 800px;
   //background-color: black;
 }
+
 
 .error-block {
     color: red;
@@ -32,3 +33,11 @@ body{
     
   }
   
+  .page_container{
+    top:-50px;
+  }
+
+  .page-top{
+    margin-top: -672px;
+    
+}

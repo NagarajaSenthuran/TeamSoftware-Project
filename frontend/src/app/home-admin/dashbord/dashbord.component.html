@@ -1,0 +1,206 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>Sidebar template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+ 
+
+</head>
+
+<body>
+
+  <nav class="page_container navbar navbar-expand-sm navbar-dark bg-dark mb-3" >
+    <div class="container-fluid">
+      <div class="navbar-header " >
+        <a class="navbar-brand fa fa-car navbar-mid" aria-hidden="true" routerLink="/admin"> GLOBAL CAR RENTAL</a>
+      </div>  
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item ">
+     
+          <a class="nav-link fa fa-sign-in" *ngIf="!isSignedIn" aria-hidden="true" routerLink="/login" >Log in</a>
+          
+          <a class="nav-link fa fa-user" routerLink="/profile" aria-hidden="true" *ngIf="isSignedIn">User Profile</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn fa fa-sign-out nav-link btn-xs" (click)="signOut()" *ngIf="isSignedIn">Log out</button>
+      </li>
+      </ul> 
+    </div>
+  </nav>
+  
+
+<div class="page-wrapper chiller-theme toggled ">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" >
+    <i class="fas fa-bars" style='font-size:20px;color:rgb(255, 255, 255)'></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="/admin">Wel Come</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">T
+            <strong>Kamal</strong>
+          </span>
+          <span class="user-role">Administrator</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>General</span>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="/admin">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+        </a>
+          </li>
+          <li class="sidebar-dropdown">
+            <a >
+              <i class="fas fa-car"></i>
+              <span>Vehicle</span>
+              <span class="badge badge-pill badge-danger"></span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="/add-newvehicle">Add New Vehicle
+
+                  </a>
+                </li>
+                <li>
+                  <a href="/view-vehicle">View Vehicles</a>
+                </li>
+                <li>
+                  <a href="/vehicle-list">List Vehicles</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="/view-booking">
+              <i class="fa fa-book"></i>
+              <span>Booking List</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown">
+            <a>
+              <i class="fa fa-chart-line"></i>
+              <span>Charts</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="/bar-chart">Bar chart</a>
+                </li>
+                <li>
+                  <a href="#">Line chart</a>
+                </li>
+                <li>
+                  <a href="#">Pie chart</a>
+                </li>
+    
+              </ul>
+            </div>
+          </li>
+          
+          <li class="header-menu">
+            <span>Extra</span>
+          </li>
+          <li>
+            <a href="/view-contact-quarry">
+              <i class="fa fa-book"></i>
+              <span>Contact-Query</span>
+             
+            </a>
+          </li>
+          <li>
+            <a href="/view-feedback">
+              <i class="fa fa-calendar"></i>
+              <span>Feedback</span>
+            </a>
+          </li>
+          <li>
+            <a href="/view-subscribe">
+              <i class="fa fa-folder"></i>
+              <span>Subscribe</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="#">
+        <i class="fa fa-bell"></i>
+        <span class="badge badge-pill badge-warning notification">3</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-envelope"></i>
+        <span class="badge badge-pill badge-success notification">7</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-cog"></i>
+        <span class="badge-sonar"></span>
+      </a>
+      <a href="#">
+        <i class="fa fa-power-off"></i>
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content  ">
+    <div class="container-fluid">
+    </div>
+  </main>
+  
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    
+</body>

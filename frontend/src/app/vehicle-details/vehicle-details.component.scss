@@ -25,10 +25,11 @@ color: #000;
   }
 
 
+
   
   .button_a{
     background-color: black;
-    color: blanchedalmond;
+    color: rgb(255, 153, 0);
     padding: 15px 20px;
     border-radius: 25px 25px 25px 25px ;
     display:inline-block;
@@ -46,4 +47,17 @@ color: #000;
     transform: scale(1.02);
     transition: all 1s ease;
     
+  }
+
+  a:hover{
+    background-color: rgb(8, 8, 8);
+    color: rgb(255, 255, 255);
+  }
+
+  h1{
+    font-size: 30px;
+  }
+
+  strong,p{
+    font-size: 16px;
   }

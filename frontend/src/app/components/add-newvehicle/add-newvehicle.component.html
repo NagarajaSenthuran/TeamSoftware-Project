@@ -1,11 +1,13 @@
+<app-dashbord></app-dashbord>
 <body class="page_container">
-  <div class="row mb-5">
+ 
+  <div class=" page-top row mb-5">
         <div class="col-8 ">
           <div class="card col-8 ">
               <div class="card-header">
                 Add New Vehicle
               </div>
-              <div class="card-body ">
+              <div class="card-body footer_text">
                 <form (ngSubmit)='onSubmit()' [formGroup]=addvehicleForm>
                   <div class="tab-panel">
                     <tabset class="member-tabset" #formTabs>
@@ -13,20 +15,20 @@
                         <div class="row">
                           <div class="form-group col-6">
                             <label> VehicleName</label>
-                            <input type="text" class="form-control"  formControlName="VehicleName" [(ngModel)]="vehicleView.VehicleName"  >
+                            <input type="text" class="form-control"  formControlName="vehicle_name" #VehicleName (keyup)="vehicleView.vehicle_name=vehicle_name.value" >
                             <!-- <span *ngIf="!vehName.valid && vehName.touched" class="error-block">
                               <span *ngIf="vehName.errors.required">Please provide name</span>
                               <span *ngIf="vehName.errors.minlength">Name must be atleast 3 char long</span>
                             </span> -->
-                            <div class="error-block" *ngIf="VehicleName.invalid && nextClicked">
+                            <div class="error-block" *ngIf="vehicle_name.invalid && nextClicked">
                               Please fill name of car
                             </div>
                           </div>
                         
                           <div class="form-group col-6">
                             <label>Brand</label>
-                            <input type="text" class="form-control" formControlName="Brand" >
-                            <div class="error-block" *ngIf="Brand.invalid && nextClicked">
+                            <input type="text" class="form-control" formControlName="vehicle_brand" >
+                            <div class="error-block" *ngIf="vehicle_brand.invalid && nextClicked">
                               Please fill name of car brand
                             </div>
                           </div>
@@ -34,40 +36,40 @@
                         </div>
                           <div class="form-group col-12">
                             <label>Details</label>
-                            <input type="text" class="form-control" formControlName="Details"  [(ngModel)]="vehicleView.Details">
-                            <div class="error-block" *ngIf="Details.invalid && nextClicked">
+                            <input type="text" class="form-control" formControlName="vehicle_overview" #OverView (keyup)="vehicleView.vehicle_overview=vehicle_overview.value">
+                            <div class="error-block" *ngIf="vehicle_overview.invalid && nextClicked">
                               Please fill car details
                             </div>
                           </div>
             
                           <div class="form-group col-12">
                             <label>Price</label>
-                            <input type="text" class="form-control"  formControlName="Price"   [(ngModel)]="vehicleView.Price">
-                            <div class="error-block" *ngIf="Price.invalid && nextClicked">
+                            <input type="text" class="form-control"  formControlName="price_per_day"  #Price (keyup)="vehicleView.price_per_day=price_per_day.value">
+                            <div class="error-block" *ngIf="price_per_day.invalid && nextClicked">
                               Please fill rent price per day
                             </div>
                           </div>
           
                           <div class="form-group col-12">
                             <label>Fuel type</label>
-                            <input type="text" class="form-control" formControlName="Fuel_Type">
-                            <div class="error-block" *ngIf="Fuel_Type.invalid && nextClicked">
+                            <input type="text" class="form-control" formControlName="fuel_type">
+                            <div class="error-block" *ngIf="fuel_type.invalid && nextClicked">
                               Please fill car fuel type
                             </div>
                           </div>
           
                           <div class="form-group col-12">
                             <label>Model year</label>
-                            <input type="text" class="form-control" formControlName="Model_Year">
-                            <div class="error-block" *ngIf="Model_Year.invalid && nextClicked">
+                            <input type="text" class="form-control" formControlName="model_year">
+                            <div class="error-block" *ngIf="model_year.invalid && nextClicked">
                               Please fill car manufacturer year
                             </div>
                           </div>
           
                           <div class="form-group col-12">
                             <label>Seating Capasity</label>
-                            <input type="text" class="form-control" formControlName="Seating_Capasity">
-                            <div class="error-block" *ngIf="Seating_Capasity.invalid && nextClicked">
+                            <input type="text" class="form-control" formControlName="seating_capacity">
+                            <div class="error-block" *ngIf="seating_capacity.invalid && nextClicked">
                               Please fill number of seat
                             </div>
                           </div>
@@ -81,8 +83,10 @@
                       <tab heading="Photos"  formGroupName="VehiclePreView">
                         <div class="form-group col-12">
                           <div class="photo-control">
-                              <button class="mt-5" type="button">Upload</button> <br>
-                              This is under construction
+                            <label>Image</label>
+                              <input type="file" name="image" id="image"  class="mt-5" formControlName="veh_img" (change)="UploadImg($event)" #IMG (keyup)="vehicleView.veh_img=veh_img.value">
+                               <br>
+                             Upload vehicle Image
                           </div>
                         </div>
             
@@ -90,7 +94,7 @@
                             <button type="button" class="btn btn-primary btn-block"
                             (click)="selectTab(0,true)">Back</button>
                               <button type="reset" routerLink="/" class="btn btn-primary btn-block">cancel</button>
-                            <button type="submit" class="btn btn-primary btn-block">Save</button>
+                            <button type="submit" (click)="onSubmitImg()" class="btn btn-primary btn-block">Save</button>
                             
                           </div>
                       </tab>

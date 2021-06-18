@@ -17,29 +17,69 @@ class VehicleController extends Controller
 
     public function upload(Request $request)
     {
-      if ($request->hasFile('image'))
-      {
-            $file      = $request->file('image');
-            $filename  = $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
-            $picture   = date('His').'-'.$filename;
-            //move image to public/img folder
-            $file->move(public_path('img'), $picture);
-            
-         return response()->json(["message" => "vehicle Uploaded Succesfully"]);
-        } 
-        else
-        {
-              return response()->json(["message" => "vehicle not added"]);
-        }
-        
-    }
-    public function addVehicle(Request $request)
-    {   
+      // if ($request->hasFile('image'))
+      // {
+      //       $file      = $request->file('image');
+      //       $filename  = $file->getClientOriginalName();
+      //       $extension = $file->getClientOriginalExtension();
+      //       $picture   = date('His').'-'.$filename;
+      //       //move image to public/img folder
+      //       $file->move(public_path('img'), $picture);
 
-        $uploadimage = $request->file->store('public/uploads');  
-      
-         $vehicle = new Vehicle;
+      //    return response()->json(["message" => "vehicle Uploaded Succesfully"]);
+      //   }
+      //   else
+      //   {
+      //         return response()->json(["message" => "vehicle not added"]);
+      //   }
+        $vehicle = new Vehicle;
+        if ($request->hasFile('veh_img')){
+         $completeFileName = $request->file('veh_img')->getClientOriginalName();
+         $fileNameOnly = pathinfo($completeFileName,PATHINFO_FILENAME);
+         $extension = $request->file('veh_img')->getClientOriginalExtension();
+         $compPic   = str_replace(' ','_',$fileNameOnly).'-'.rand().'_'.time().'.'.$extension;
+         //move image to public/img folder
+         $path->$request->file('veh_img')->storeAs('public/img', $compPic);
+         $vehicle->veh_img=$compPic;
+        }
+
+        if($vehicle->save())
+        {
+          return['status'=>true];
+        }
+         else{
+          return['status'=>false];
+         }
+
+    }
+
+    public function addVehicle(Request $request)
+    {
+        //  $uploadimage = $request->file->store('public/uploads');
+                  // $file = $request->file('file');
+                  // $uploadPath="public/img";
+                  // $orginalImage = $file->getClientOriginalName();
+                  // dd($orginalImage);
+        $vehicle = new Vehicle;
+                 
+        // $completeFileName = $request->file('file')->getClientOriginalName();
+        // $fileNameOnly = pathinfo($completeFileName,PATHINFO_FILENAME);
+        // $extension = $request->file('file')->getClientOriginalExtension();
+        // $compPic   = str_replace(' ','_',$fileNameOnly).'-'.rand().'_'.time().'.'.$extension;
+        //  //   //move image to public/img folder
+        // $path->$request->file('file')->storeAs('public/img', $compPic);
+        // $vehicle->veh_img=$compPic;
+
+        //  if ($request->hasFile('veh_img')){
+        //   $completeFileName = $request->file('veh_img')->getClientOriginalName();
+        //   $fileNameOnly = pathinfo($completeFileName,PATHINFO_FILENAME);
+        //   $extension = $request->file('veh_img')->getClientOriginalExtension();
+        //   $compPic   = str_replace(' ','_',$fileNameOnly).'-'.rand().'_'.time().'.'.$extension;
+        //   //move image to public/img folder
+        //   $path->$request->file('veh_img')->storeAs('public/img', $compPic);
+        //   $vehicle->veh_img=$compPic;
+        // }
+
       //  $vehicle->vechile_id=$request->vechile_id;
          $vehicle->vehicle_name=$request->vehicle_name;
          $vehicle->vehicle_brand = $request->vehicle_brand;
@@ -48,12 +88,20 @@ class VehicleController extends Controller
          $vehicle->fuel_type = $request->fuel_type;
          $vehicle->model_year = $request->model_year;
          $vehicle->seating_capacity = $request->seating_capacity;
-         $vehicle->veh_img = $request->file->hashName();
+        // $vehicle->veh_img = $request->file;
+         $vehicle->is_available = $request->is_available;
          $vehicle->registration_date = $request->registration_date;
          $vehicle->updation_date = $request->updation_date;
          $vehicle->save();
 
-  
+        //  if($vehicle->save())
+        // {
+        //   return['status'=>true];
+        // }
+        // else{
+        //   return['status'=>false];
+        // }
+
          return response()->json([
              "message" => "Vehicle record created"
          ], 201);
@@ -68,8 +116,18 @@ class VehicleController extends Controller
         //  }
     }
 
+//     public function addVehicle(Request $request){
+//       $file = $request->file('veh_img');
+//       $uploadPath="public/img";
+//       $orginalImage = $file->getClientOriginalName();
+//       $file->move($uploadPath,$orginalImage);
+//       $vehicleData = json_decode($request->date,true);
+//       $vehicleData["Image"]=$orginalImage;
+//       dd($orginalImage);
+//       $vehicle=new Vehicle();
+//       $data=$vehicle->addVehicle($vehicleData);
+//  }
 
-    
     public function getAllVehicle() {
         // $vehicle = Vehicle::get()->toJson(JSON_PRETTY_PRINT);
         // return response($vehicle, 200);
@@ -89,7 +147,7 @@ class VehicleController extends Controller
       }
 
       public function updateVehicle(Request $request) {
-       
+
         $vehicle=Vehicle::find($request->id);
         $vehicle->Vehicle_name=$request->Vehicle_name;
         $vehicle->Vehicle_brand = $request->Vehicle_brand;
@@ -98,7 +156,8 @@ class VehicleController extends Controller
         $vehicle->Fuel_type = $request->Fuel_type;
         $vehicle->Model_year =$request->Model_year;
         $vehicle->Seating_capacity =$request->Seating_capacity;
-       // $vehicle->veh_img = $request->veh_img;
+        $vehicle->veh_img = $request->veh_img;
+        $vehicle->is_available = $request->is_available;
         $vehicle->Registration_date = $request->Registration_date;
         $vehicle->Updation_date = $request->Updation_date ;
 
@@ -124,9 +183,9 @@ class VehicleController extends Controller
         //      $vehicle->veh_img = is_null($request->veh_img) ? $vehicle->veh_img:$request->veh_img;
         //      $vehicle->registation_date = is_null($request->registation_date) ? $vehicle->registation_date : $request->registation_date;
         //      $vehicle->updation_date = is_null($request->updation_date) ? $vehicle->updation_date : $request->updation_date;
-            
+
         //     $vehicle->save();
-    
+
         //     return response()->json([
         //         "message" => "records updated successfully"
         //     ], 200);
@@ -134,11 +193,11 @@ class VehicleController extends Controller
         //     return response()->json([
         //         "message" => "Vehicle not found"
         //     ], 404);
-            
+
         //       }
          }
 
-        
+
          public function deleteVehicle ($id) {
           $vehicle=Vehicle::find($id);
           $result=$vehicle->delete();
@@ -153,7 +212,7 @@ class VehicleController extends Controller
           // if(Vehicle::where('id', $id)->exists()) {
             //   $vehicle = Vehicle::find($id);
             //   $vehicle->delete();
-      
+
             //   return response()->json([
             //     "message" => "records deleted"
             //   ], 202);
