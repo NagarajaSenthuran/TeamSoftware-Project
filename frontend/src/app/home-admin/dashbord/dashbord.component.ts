@@ -43,15 +43,10 @@ export class DashbordComponent implements OnInit {
 
   isLogin()
   {   
-    this.userid=this.getuser_id();
+    
     if(this.auth.userState.value)
     {
-      if(this.userid == 1){
-        this.router.navigate(['/admin']);
-      }
-      else{
-       // this.router.navigate(['/profile']);
-      }
+      
     }
     else{
       

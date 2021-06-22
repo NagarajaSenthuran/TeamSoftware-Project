@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingService } from 'src/app/services/booking.service';
 
 @Component({
   selector: 'app-view-booking',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewBookingComponent implements OnInit {
   p:any;
-  constructor() { }
+  bookingArray :any;
+  selectValue:String;
+  
+  constructor(private bookingService: BookingService) { }
 
   ngOnInit(): void {
+    this.bookingService.getAllBooking().subscribe(res=>{
+      console.log(res);
+      this.bookingArray = res;
+     })
   }
 
 }

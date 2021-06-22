@@ -68,6 +68,7 @@ import { FeedbacksearchPipe } from './Pipes/feedbacksearch.pipe';
 import { ContactsearchPipe } from './Pipes/contactsearch.pipe';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { SearchuserPipe } from './Pipes/searchuser.pipe';
+import { BookingsearchPipe } from './Pipes/bookingsearch.pipe';
 
 
 @NgModule({
@@ -103,6 +104,8 @@ import { SearchuserPipe } from './Pipes/searchuser.pipe';
     ContactsearchPipe,
     ViewUserComponent,
     SearchuserPipe,
+    BookingsearchPipe,
+
 
     
   

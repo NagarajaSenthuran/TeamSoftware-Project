@@ -1,9 +1,84 @@
 <body>
-    <!--<style>
+    <app-dashbord></app-dashbord>
+<body class="page_container">
+  <style>
     .my-pagination /deep/ .ngx-pagination .current {
       background: red;
     }
-  </style> 
-        <pagination-controls class="pagination float-right my-pagination" maxSize="4" (pageChange)="p = $event"></pagination-controls>
-    | paginate:{ itemsPerPage:6,currentPage:p}" -->
+  </style>
+  <div class="page-top">
+    <div class="row">
+      <div class="col-8 p-3  ml-lg-4">
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:40px;color:white'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>        
+      </div>
+
+      <div class="col-2 ml-5">
+        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white">Total Booking: </div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+
+    <div class="row">
+      <div class="col-8 m-5">
+      </div>
+      <div class=" input-group col-2 m-5">
+        <input [(ngModel)]='selectValue' class="form-control search-menu" placeholder="Search...">
+         <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+      </div>
+      </div>
+    </div>
+  
+    <div class="txt row mt-2 p-3  page-left">
+      <div class="col-md-12">
+        <table *ngIf = "bookingArray?.length > 0; else noBook" class="table table-dark table-striped table-hover">
+          <thead class="thead-inverse ">
+            <tr>
+              <th>ID</th>
+              <th>Vehicle Id</th>
+              <th>Name of Customer</th>
+              <th>Rent Start Date</th>
+              <th>Rent Start Date</th>
+              <th>Vehicle Type</th>
+              <th>Posting Date</th>
+              <th>Edit</th>
+              <th>Delete</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let book of bookingArray | bookingsearch:selectValue  | paginate:{ itemsPerPage:6,currentPage:p}">
+              <td>{{book.id}}</td>
+              <td>{{book.vehicle_id}}</td>
+              <td>{{book.name}}</td> 
+              <td>{{book.start_date}}</td>
+              <td>{{book.end_date}} </td>
+              <td>{{book.car_Type}}</td>
+              <td>{{book.posting_date}}</td>
+              <td><i class='fas fa-edit' style='font-size:20px;color:rgb(37, 150, 216)'></i></td>
+              <td><i class='fas fa-trash-alt' style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #noBook>
+      <hr />
+      <h4>There are no Vehicle in the system</h4>
+    </ng-template>
+  </div>
+  <pagination-controls class="pagination float-right my-pagination text-light" maxSize="4" (pageChange)="p = $event"></pagination-controls>
+ 
+  
+</body>
+  
+
+
 </body>
