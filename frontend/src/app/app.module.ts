@@ -61,6 +61,14 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BarChartsComponent } from './home-admin/bar-charts/bar-charts.component';
 import { MaterialCssVarsModule, MaterialCssVarsService } from 'angular-material-css-vars';
 import { DashbordComponent } from './home-admin/dashbord/dashbord.component';
+import { ViewSubscribeComponent } from './components/view-subscribe/view-subscribe.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { VehiclesearchPipe } from './Pipes/vehiclesearch.pipe';
+import { FeedbacksearchPipe } from './Pipes/feedbacksearch.pipe';
+import { ContactsearchPipe } from './Pipes/contactsearch.pipe';
+import { ViewUserComponent } from './components/view-user/view-user.component';
+import { SearchuserPipe } from './Pipes/searchuser.pipe';
+
 
 @NgModule({
   declarations: [
@@ -89,6 +97,13 @@ import { DashbordComponent } from './home-admin/dashbord/dashbord.component';
     ViewCotactQuarryComponent,
     BarChartsComponent,
     DashbordComponent,
+    ViewSubscribeComponent,
+    VehiclesearchPipe,
+    FeedbacksearchPipe,
+    ContactsearchPipe,
+    ViewUserComponent,
+    SearchuserPipe,
+
     
   
    
@@ -118,8 +133,9 @@ import { DashbordComponent } from './home-admin/dashbord/dashbord.component';
       darkThemeClass: 'isDarkTheme',
       lightThemeClass: 'isLightTheme',
       // ...
-    })
-    //BrowserAnimationsModule
+    }),
+    NgxPaginationModule
+    
   ],
   providers: [
     {

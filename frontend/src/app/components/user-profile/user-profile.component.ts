@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthStateService } from 'src/app/shared/auth-state.service';
 import { AuthService } from './../../shared/auth.service';
 
 // User interface
@@ -16,14 +18,25 @@ export class User {
 export class UserProfileComponent implements OnInit {
   UserProfile: User;
 
-  constructor(
-    public authService: AuthService
-  ) {
+  constructor(private router: Router,private auth: AuthStateService, public authService: AuthService ) {
     this.authService.profileUser().subscribe((data:any) => {
       this.UserProfile = data;
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {  this.isLogin();
+  }
+
+  isLogin()
+  {
+    if(this.auth.userState.value)
+    {
+       
+    }
+    else{
+      
+      this.router.navigate(['/login']);
+    }
+  }
 
 }

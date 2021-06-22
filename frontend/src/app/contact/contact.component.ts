@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AlertifyService } from 'src/app/services/Alertify.service';
 import {  FormGroup,FormBuilder } from '@angular/forms';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +14,7 @@ export class ContactComponent implements OnInit {
   subscribeForm:FormGroup;
   base_url="http://localhost:8000/api";
  
-  constructor(private fb:FormBuilder,private http:HttpClient) {
+  constructor(private alertify:AlertifyService, private fb:FormBuilder,private http:HttpClient) {
     this.contectForm=fb.group({
       name:'',
       email:'',
@@ -44,12 +45,12 @@ export class ContactComponent implements OnInit {
     if(respl[0]=='true')
        {
         
-        alert('Your Message Successfully Send');
+        this.alertify.success('Your Message Successfully Send');
         this.contectForm.reset();
        }
       else
         {
-         alert('Your Message not Send');
+          this.alertify.error('Your Message not Send');
          this.contectForm.reset();
         }
       });
@@ -69,13 +70,13 @@ export class ContactComponent implements OnInit {
       let respl=Array.from(Object.keys(data),k=>data[k]);
       if(respl[0]=='true')
       {
-       alert('Thank You for Subscribe');
+        this.alertify.success('Thank You for Subscribe');
        this.subscribeForm.reset();
       }
       else
       {
         this.subscribeForm.reset();
-       alert('Please Try Again');
+        this.alertify.error('Please Try Again or E-mail exist');
       }
       
       console.log(data);

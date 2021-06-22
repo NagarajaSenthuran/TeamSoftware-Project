@@ -18,6 +18,9 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::get('user-profile', 'AuthController@userProfile');
+    Route::get('view-user', 'AuthController@show');
+    Route::get('user/{id}', 'AuthController@getUserById');
+    
 });
 
 
@@ -28,7 +31,7 @@ Route::get('vehicles', [ VehicleController::class, 'getAllVehicle']);
 Route::get('vehicles/{id}', [ VehicleController::class, 'getVehicle']);
 Route::put('vehicles', [ VehicleController::class, 'updateVehicle']);
 Route::delete('vehicles/{id}', [ VehicleController::class, 'deleteVehicle']);
-Route::post('/sample-restful-apis', [VehicleController::class, 'upload'])->name('sample-restful-apis');
+Route::post('imgupload', [VehicleController::class, 'upload'])->name('sample-restful-apis');
 //booking
 Route::post('bookings', [ BookingController::class, 'store']);
 Route::get('bookings', [ BookingController::class, 'index']);

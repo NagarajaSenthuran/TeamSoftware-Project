@@ -1,0 +1,70 @@
+
+<app-dashbord></app-dashbord>
+<body>
+  <style>
+    .my-pagination /deep/ .ngx-pagination .current {
+      background: red;
+    }
+  </style>
+  <div class="page-top">
+    <div class="row">
+      <div class="col-md-6 p-3">
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:40px;color:white'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>     
+      </div> 
+      <div class="col-md-6">
+        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white">Total Subscribers: </div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-8 m-5">
+      </div>
+      <div class="input-group col-2 m-5">
+        <input [(ngModel)]='email' (input)="Search()"class="form-control search-menu" placeholder="Search...">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2 p-3 ">
+      <div class="col-3"></div>
+      <div class="col-md-8">
+        <table *ngIf = "subscribekArray?.length > 0; else noSubscribe" class="table table-dark table-striped table-hover">
+          <thead class="thead-inverse ">
+            <tr>
+              <th>ID</th>
+              <th>Subscriber's Email</th>
+              <th>Delete</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let sub of subscribekArray | paginate:{ itemsPerPage:6,currentPage:p}">
+              <td>{{sub.id}}</td>
+              <td>{{sub.email}}</td> 
+              <td><i class='fas fa-trash-alt' (click)="deleteData(sub.id)" style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #noSubscribe>
+      <hr />
+      <h3>There are no Subscribe</h3>
+    </ng-template>
+    
+  </div>
+  <div class="" >
+    <pagination-controls class="pagination float-right my-pagination" maxSize="4" (pageChange)="p = $event"></pagination-controls>
+  </div>
+ 
+    
+  </body>

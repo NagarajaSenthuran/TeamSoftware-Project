@@ -116,20 +116,28 @@ export class AddNewvehicleComponent implements OnInit {
   onSubmit() {
     this.nextClicked=true;
     if (this.allTabsValid()) {
-      
-      
+      const formdata = new FormData();
+      formdata.append('vehicle_name',this.vehicle_name.value)
+      formdata.append('vehicle_brand',this.vehicle_brand.value)
+      formdata.append('vehicle_overview',this.vehicle_overview.value)
+      formdata.append('price_per_day',this.price_per_day.value)
+      formdata.append('fuel_type',this.fuel_type.value)
+      formdata.append('model_year',this.model_year.value)
+      formdata.append('seating_capacity',this.seating_capacity.value)
+      formdata.append('image',this.files)
+
       // formdata.append("data",JSON.stringify(this.vehicle));
-       this.mapVehicle();
-      this.vehiclesService.addVehicle(this.vehicle).subscribe(res=>{
+       
+      this.vehiclesService.addVehicle(formdata).subscribe(res=>{
         if (res)
         {
           this.alertify.success('Congrats, form Submitted');
           //console.log('VehicleName='+ this.addvehicleForm.value.VehicleDetails.VehicleName);
           console.log(this.addvehicleForm);
-          this.router.navigate(['/vehicle-list']);
+          this.router.navigate(['/admin']);
         }
       })
-    
+
     }
     else {
       this.alertify.error('Please review the form and provide all valid entries');

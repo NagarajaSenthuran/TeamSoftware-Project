@@ -1,6 +1,11 @@
 
 <app-dashbord></app-dashbord>
 <body>
+  <style>
+    .my-pagination /deep/ .ngx-pagination .current {
+      background: red;
+    }
+  </style>
   <div class="page-top">
     <div class="row">
       <div class="col-md-6 p-3">
@@ -9,29 +14,43 @@
         <i class='fas fa-car' style='font-size:40px;color:white'></i>
         <i class='fas fa-car' style='font-size:30px;color:blue'></i>
         <i class='fas fa-car' style='font-size:20px;color:red'></i>
-     </div> 
+       </div> 
       <div class="col-md-6">
-        <div class="pull-right text-muted p-4" style="font-size: 20px; font-weight: bold;">Total Feedback: </div>
+        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white">Total Feedback: </div>
       </div>
     </div>
     <br>
     <br>
-    <div class="row mt-2 p-3  ">
+
+    <div class="row">
+      <div class="col-8 m-5">
+      </div>
+      <div class="input-group col-2 m-5">
+        <input [(ngModel)]='selectValue' class="form-control search-menu" placeholder="Search...">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2 p-3  page-left">
       <div class="col-md-12">
         <table *ngIf = "feedbackArray?.length > 0; else noFeedback" class="table table-dark table-striped table-hover">
-          <thead class="thead-inverse thead-light">
+          <thead class="thead-inverse ">
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Phoneno</th>
-              <th>Postingdate</th>
+              <th>Phone No</th>
+              <th>Posting Date</th>
               <th>Message</th>
               <th>Delete</th> 
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor = "let feedback of feedbackArray">
+            <tr *ngFor = "let feedback of feedbackArray | feedbacksearch:selectValue  | paginate:{ itemsPerPage:6,currentPage:p}">
               <td>{{feedback.id}}</td>
               <td>{{feedback.name}}</td>
               <td>{{feedback.email}}</td> 
@@ -49,6 +68,8 @@
       <h4>There are no feedback</h4>
     </ng-template>
   </div>
+  <pagination-controls class="pagination float-right my-pagination" maxSize="4" (pageChange)="p = $event"></pagination-controls>
+ 
     
     
   </body>

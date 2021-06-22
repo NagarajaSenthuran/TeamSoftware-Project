@@ -104,7 +104,7 @@ export class VehiclesService {
 
   uploadData(data){
     const headers = new HttpHeaders();
-    return this.http.post('http://localhost:8000/api/sample-restful-apis', data ,{
+    return this.http.post('http://localhost:8000/api/imageupload', data ,{
       headers:headers
     });
   }

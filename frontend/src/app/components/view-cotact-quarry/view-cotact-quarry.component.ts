@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCotactQuarryComponent implements OnInit {
   contactArray:any;
+  p:any;
+  selectValue:String;
   constructor(private contactService:ContactService) { }
 
   ngOnInit(): void {

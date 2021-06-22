@@ -38,7 +38,12 @@ class ContactQuerryController extends Controller
      */
     public function store(Request $request)
     {
-        $validator=Validator::make($request->all(),['name'=>'required','email'=>'required','phone_num'=>'required','message'=>'required','Posting_date'=>'required']);
+        $validator=Validator::make($request->all(),[
+            'name'=>'required|string|between:2,100',
+            'email'=>'required|string|email|max:100|unique:users',
+            'phone_num'=>'required',
+            'message'=>'required',
+            'Posting_date'=>'required']);
         if($validator->passes())
         {
             $contactQuerry = new ContactQuerry;

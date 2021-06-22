@@ -2,8 +2,9 @@
 <body class="page_container">
  
   <div class=" page-top row mb-5">
-        <div class="col-8 ">
-          <div class="card col-8 ">
+    
+        <div class="col-6 page-left"><br>
+          <div class="card col-10 ">
               <div class="card-header">
                 Add New Vehicle
               </div>
@@ -94,7 +95,7 @@
                             <button type="button" class="btn btn-primary btn-block"
                             (click)="selectTab(0,true)">Back</button>
                               <button type="reset" routerLink="/" class="btn btn-primary btn-block">cancel</button>
-                            <button type="submit" (click)="onSubmitImg()" class="btn btn-primary btn-block">Save</button>
+                            <button type="submit" class="btn btn-primary btn-block">Save</button>
                             
                           </div>
                       </tab>
@@ -104,7 +105,7 @@
               </div>
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-3  page-right"><br>
           <div class="card-header">
             <h1 class="footer_text">Your Vehicle Preview</h1>
             <app-vehicle-card [vehicle]="vehicleView" hideIcons="true"></app-vehicle-card>

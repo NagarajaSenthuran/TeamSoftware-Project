@@ -17,6 +17,7 @@ import { Vehicle } from '../model/vehicle';
   SortbyParam = '';
   SortDirection = 'asc';
 
+  p:any;
   constructor(private route: ActivatedRoute, private vehiclesService: VehiclesService) { }
 
   ngOnInit(): void {
@@ -42,9 +43,9 @@ import { Vehicle } from '../model/vehicle';
   );
   }
  
-  onNameFilter(){
-    this.SearchName = this.VehicleName;
-  }
+  // onNameFilter(){
+  //   this.SearchName = this.VehicleName;
+  // }
 
   onNameFilterClear(){
     this.SearchName = '';
@@ -59,5 +60,17 @@ import { Vehicle } from '../model/vehicle';
    {
      this.SortDirection = 'desc';
    }
+  }
+
+
+  Search(){
+    if(this.VehicleName !=""){
+      this.vehicles = this.vehicles.filter(res=>{
+        return res.vehicle_name.toLocaleLowerCase().match(this.VehicleName.toLocaleLowerCase());
+       });
+     }
+     else if(this.VehicleName ==""){
+       this.ngOnInit();
+     }
   }
 }

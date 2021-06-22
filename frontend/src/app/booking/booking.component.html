@@ -6,59 +6,49 @@
                   BOOKING
                 </div>
                 <div class="card-body ">
-                  <form [formGroup]="bookForm" (ngSubmit)="save_book(bookForm)">
+                  <form [formGroup]='bookForm' (ngSubmit)="onsubmit()">
                   
-                      
-            
                           <div class="row">
                             <div class="form-group col-6">
-                                <label for="">Name</label>
-                                <input type="text" class="form-control" formControlName="Name" placeholder="Name"> 
-                             
+                              <label>Vehicle ID</label>
+                              <input type="text" class="form-control" formControlName="vehicle_id" placeholder=""> 
                             </div>
-                          
                             <div class="form-group col-6">
-                              <label>E-Mail</label>
-                              <input type="text" class="form-control" formControlName="Email" placeholder="Enter E-Mail"> 
-                            
-                            </div>
-  
+                              <label for="">Name</label>
+                              <input type="text" class="form-control" formControlName="name" placeholder="Name"> 
+                           
+                          </div>
                           </div>
                           <div class="row">
                             <div class="form-group col-6">
                                 <label for="">Start date</label>
-                                <input type="date" class="form-control" formControlName="Start_date"  placeholder="Rent Date" required autofocus>
+                                <input type="date" class="form-control" formControlName="start_date"  placeholder="Rent Date" required autofocus>
                                 
                             </div>
                             <div class="form-group col-6">
                                 <label for="">End date</label>
-                                <input type="date" class="form-control" formControlName="End_date"  placeholder="End Date" required autofocus>
+                                <input type="date" class="form-control" formControlName="end_date"  placeholder="End Date" required autofocus>
                                 
                             </div>
                           </div>
                            <div class="row">
                             <div class="form-group col-6">
                                 <label for="Gender">Car Type</label> 
-                                <select class="form-control" formControlName="Type">
+                                <select class="form-control" formControlName="car_Type">
                                     <option value="volvo">Weddings</option>
                                     <option value="saab">Self Drive</option>
                                     </select>
-                               
                               </div>
+
                               <div class="form-group col-6">
                                 <label for="">Posting Date</label>
-                                <input type="date" class="form-control" formControlName="Posting_Date"  placeholder="End Date" required autofocus>
+                                <input type="date" class="form-control" formControlName="posting_date"  placeholder="End Date" required autofocus>
                                 
                               </div>
                            
                            </div>
               
-                            <div class="row">
-                                <div class="form-group col-12">
-                                    <label for="">Message</label>
-                                    <textarea type="text" formControlName="Message" class="form-control" placeholder="Message"></textarea>              
-                                </div>
-                            </div>
+                           
             
                             <div class="form-group col-12">
                                 <button type="submit" class="btn btn-block btn-primary">Book Now</button>

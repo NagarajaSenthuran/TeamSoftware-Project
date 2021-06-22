@@ -61,7 +61,13 @@ class VehicleController extends Controller
                   // $orginalImage = $file->getClientOriginalName();
                   // dd($orginalImage);
         $vehicle = new Vehicle;
-                 
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = "vehicle-img-".time().'.'.$extension;
+        $file->move('img', $filename);
+        
+
+
         // $completeFileName = $request->file('file')->getClientOriginalName();
         // $fileNameOnly = pathinfo($completeFileName,PATHINFO_FILENAME);
         // $extension = $request->file('file')->getClientOriginalExtension();
@@ -88,7 +94,8 @@ class VehicleController extends Controller
          $vehicle->fuel_type = $request->fuel_type;
          $vehicle->model_year = $request->model_year;
          $vehicle->seating_capacity = $request->seating_capacity;
-        // $vehicle->veh_img = $request->file;
+         $vehicle->veh_img= $filename;
+       
          $vehicle->is_available = $request->is_available;
          $vehicle->registration_date = $request->registration_date;
          $vehicle->updation_date = $request->updation_date;

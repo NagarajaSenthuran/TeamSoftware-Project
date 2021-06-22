@@ -1,20 +1,27 @@
   <body class="page_container">
+    <style>
+      .my-pagination /deep/ .ngx-pagination .current {
+        background: red;
+        color:white;
+      }
+    </style>
     <div>
       <div class="row">
         <div class="input-group col-4">
-          <label >Filter Name:</label>
-          <input [(ngModel)]='VehicleName' class="form-control search-menu" placeholder="Search...">
+          
+          <input [(ngModel)]='VehicleName' class="form-control search-menu" (input)="Search()" placeholder="Search...">
           <div class="input-group-append">
             <span class="input-group-text">
               <i class="fa fa-search" aria-hidden="true"></i>
             </span>
           </div>
-          <button class="btn-outline-primary" type="button" (click)="onNameFilter()">Search</button>
+          <button class="btn-outline-primary" type="button" (click)="Search()">Search</button>
           <button class="btn-outline-primary" type="button" (click)="onNameFilterClear()">Clear</button> 
          </div>
         <div class="input-group col-4">
-          <label>&nbsp; &nbsp; &nbsp; &nbsp; Sort by &nbsp;</label>
-          <select [(ngModel)] = 'SortbyParam' >
+          <label>&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;</label>
+          <select [(ngModel)] = 'SortbyParam' name="Select">
+            <option value="" selected>Select</option>
             <option value="price_per_day">Price</option>
             <option value="model_year">Model Year</option>
           </select>
@@ -27,7 +34,7 @@
        
       
      <div class="row">
-          <div *ngFor="let vehicle of vehicles|filter:SearchName:'vehicle_name'|sort:[SortbyParam,SortDirection]"
+          <div *ngFor="let vehicle of vehicles|filter:SearchName:'vehicle_name'|sort:[SortbyParam,SortDirection] | paginate:{ itemsPerPage:8,currentPage:p}"
            class="col-sm-3">
             <div class=" p-3 mb-2">
                 <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
@@ -35,5 +42,6 @@
         </div>
         </div>
     </div>
-   
+    <pagination-controls class="pagination  my-pagination text-center text-light" maxSize="4" (pageChange)="p = $event"></pagination-controls>
+ 
   </body>

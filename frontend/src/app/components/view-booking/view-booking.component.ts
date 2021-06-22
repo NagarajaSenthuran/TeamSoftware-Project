@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-booking.component.scss']
 })
 export class ViewBookingComponent implements OnInit {
-
+  p:any;
   constructor() { }
 
   ngOnInit(): void {

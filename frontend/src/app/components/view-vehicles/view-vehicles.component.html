@@ -1,24 +1,45 @@
 <app-dashbord></app-dashbord>
 <body class="page_container">
+  <style>
+    .my-pagination /deep/ .ngx-pagination .current {
+      background: red;
+    }
+  </style>
   <div class="page-top">
     <div class="row">
-      <div class="col-md-6 p-3">
+      <div class="col-8 p-3  ml-lg-4">
         <i class='fas fa-car' style='font-size:20px;color:red'></i>
         <i class='fas fa-car' style='font-size:30px;color:blue'></i>
         <i class='fas fa-car' style='font-size:40px;color:white'></i>
         <i class='fas fa-car' style='font-size:30px;color:blue'></i>
-        <i class='fas fa-car' style='font-size:20px;color:red'></i>
-     </div>
-      <div class="col-md-6">
-        <div class="pull-right text-muted p-4" style="font-size: 20px; font-weight: bold;">Total Vehicles: </div>
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>        
+      </div>
+
+      <div class="col-2 ml-5">
+        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white">Total Vehicles: </div>
       </div>
     </div>
     <br>
     <br>
-    <div class="txt row mt-2 p-3  ">
+
+
+    <div class="row">
+      <div class="col-8 m-5">
+      </div>
+      <div class=" input-group col-2 m-5">
+        <input [(ngModel)]='selectValue' class="form-control search-menu" placeholder="Search...">
+         <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+      </div>
+      </div>
+    </div>
+  
+    <div class="txt row mt-2 p-3  page-left">
       <div class="col-md-12">
         <table *ngIf = "vehicleArray?.length > 0; else noVehicle" class="table table-dark table-striped table-hover">
-          <thead class="thead-inverse thead-light">
+          <thead class="thead-inverse ">
             <tr>
               <th>ID</th>
               <th>Vehicle Name</th>
@@ -34,7 +55,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor = "let vehicle of vehicleArray">
+            <tr *ngFor = "let vehicle of vehicleArray | vehiclesearch:selectValue  | paginate:{ itemsPerPage:6,currentPage:p}">
               <td>{{vehicle.id}}</td>
               <td>{{vehicle.vehicle_name}}</td>
               <td>{{vehicle.vehicle_brand}}</td> 
@@ -56,6 +77,7 @@
       <h4>There are no Vehicle in the system</h4>
     </ng-template>
   </div>
+  <pagination-controls class="pagination float-right my-pagination text-light" maxSize="4" (pageChange)="p = $event"></pagination-controls>
  
   
 </body>

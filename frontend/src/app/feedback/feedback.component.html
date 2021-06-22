@@ -60,33 +60,41 @@
                       Feedback
                     </div>
                     <div class="card-body ">
-                      <form (ngSubmit)="insretData()">
+                      <form [formGroup]="feedbackForm">
+           
       
                               <div class="row">
                                 <div class="form-group col-6">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" name="name" [(ngModel)]="feedback.name" placeholder="Name"> 
-                                 
+                                    <input type="text" class="form-control" formControlName="name" placeholder="Name" required autofocus > 
+                                    <span *ngIf="!name.valid && name.touched" class="error-block">
+                                        Please fill name
+                                    </span>
                                 </div>
                               
                                 <div class="form-group col-6">
                                   <label for="email">E-Mail</label>
-                                  <input type="text" class="form-control" name="email" [(ngModel)]="feedback.email" placeholder="Enter E-Mail"> 
-                                
+                                  <input type="text" class="form-control" formControlName="email" placeholder="Enter E-Mail"> 
+                                  <span *ngIf="!feedbackForm.get('email').valid && feedbackForm.get('email').touched" class="error-block">
+                                    Please provide valid email
+                                </span>
                                 </div>
       
                               </div>
                               <div class="row">
                                 <div class="form-group col-12">
                                     <label for="phoneno">Phone Number</label>
-                                    <input type="text" class="form-control" name="phoneno"  [(ngModel)]="feedback.phoneno" placeholder="Phone Number" required autofocus>
+                                    <input type="text" class="form-control"  formControlName="phoneno" placeholder="Phone Number" required >
                                 </div>
+                                <span *ngIf="!feedbackForm.get('phoneno').valid && feedbackForm.get('phoneno').touched" class="error-block">
+                                    Please provide valid Phone number with min 10 numbers
+                                </span>
                               </div>
                                 
                                 <div class="row">
                                     <div class="form-group col-12">
                                         <label for="postingdate">Posting date</label>
-                                        <input type="date" class="form-control" name="postingdate"  [(ngModel)]="feedback.postingdate" placeholder="Posting Date" required autofocus>
+                                        <input type="date" class="form-control" formControlName="postingdate" placeholder="Posting Date" required autofocus>
                                         
                                     </div>
                                 </div>
@@ -94,12 +102,15 @@
                                 <div class="row">
                                     <div class="form-group col-12">
                                         <label for="message">Feedback</label>
-                                        <textarea type="text" name="message" class="form-control" [(ngModel)]="feedback.message" placeholder="Message"></textarea>              
+                                        <textarea type="text"  class="form-control"  formControlName="message" placeholder="Message"></textarea>              
                                     </div>
+                                    <span *ngIf="!feedbackForm.get('message').valid && feedbackForm.get('message').touched" class="error-block">
+                                        Please enter min 10 character
+                                    </span>
                                 </div>
                 
                                 <div class="form-group col-12">
-                                    <button type="submit" class="btn btn-block btn-primary">My Feedback</button>
+                                    <button [disabled]="feedbackForm.invalid" (click)="onSubmit(feedbackForm)" type="submit" class="btn btn-block btn-primary">My Feedback</button>
                                 </div>
                       </form>
                     </div>

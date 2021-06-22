@@ -1,22 +1,42 @@
 <app-dashbord></app-dashbord>
 <body class="page_container page-top">
- 
+  <style>
+    .my-pagination /deep/ .ngx-pagination .current {
+      background: red;
+    }
+  </style><br>
     <div class="row">
-      <div class="col-md-6 p-4">
-          <li class="">
-            <a class="button_a" routerLink="http://mail.google.com/mail/u/0/#compose"> Send Email</a>
-        </li>
+      <div class="col-8">
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:40px;color:white'></i>
+        <i class='fas fa-car' style='font-size:30px;color:blue'></i>
+        <i class='fas fa-car' style='font-size:20px;color:red'></i>        
       </div>
-      <div class="col-md-6">
-        <div class="pull-right text-muted p-4" style="font-size: 20px; font-weight: bold;">Total Contacts: </div>
+      <div class="col-4">
+        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold;color:white">Total Contacts: </div>
       </div>
     </div>
     <br>
     <br>
-    <div class="row mt-2 p-3  ">
+
+    <div class="row">
+      <div class="col-8 m-5">
+      </div>
+      <div class=" input-group col-2 m-5">
+        <input [(ngModel)]='selectValue' class="form-control search-menu" placeholder="Search...">
+         <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+      </div>
+      </div>
+    </div>
+
+    <div class="row mt-2 p-3 page-left ">
       <div class="col-md-12">
         <table *ngIf = "contactArray?.length > 0; else noContact" class="table table-dark table-striped table-hover">
-          <thead class="thead-inverse thead-light">
+          <thead class="thead-inverse ">
             <tr>
               <th>ID</th>
               <th>Name</th>
@@ -28,7 +48,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor = "let contact of contactArray">
+            <tr *ngFor = "let contact of contactArray | contactsearch:selectValue | paginate:{ itemsPerPage:6,currentPage:p}">
               <td>{{contact.id}}</td>
               <td>{{contact.name}}</td>
               <td>{{contact.email}}</td> 
@@ -45,7 +65,8 @@
       <hr />
       <h4>There are no Contact in the system</h4>
     </ng-template>
-    
+    <pagination-controls class="pagination float-right my-pagination" maxSize="4" (pageChange)="p = $event"></pagination-controls>
+ 
   </body>
     
   

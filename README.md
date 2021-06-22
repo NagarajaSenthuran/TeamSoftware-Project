@@ -1,6 +1,6 @@
 # TeamSoftware-Project
 
-# Car Rental System - Angular 10|laravel 8
+# Car Rental System - Angular 11 |laravel 8
 
 ## Start Laravel App
 * Enter inside the laravel API project folder. 

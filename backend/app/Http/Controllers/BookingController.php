@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -14,7 +15,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return response()->json(Booking::all(), 200);
+        return Booking::all();
        // return Booking::all();
     //    $booking = Booking::all();
     //    return new BookingResource($booking);
@@ -39,32 +40,36 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $booking = Booking::create($request->all());
-        return response($booking, 201);
+        // $booking = Booking::create($request->all());
+        // return response($booking, 201);
         //
-                    //     $booking = new Booking;
-                    //     $booking->Name=$request->Name;
-                    //     $booking->User_email=$request->User_email;
-                    //    // $booking->Vehicle_id = $request->Vehicle_id;
-                    //     $booking->Start_date = $request->Start_date;
-                    //     $booking->End_date = $request->End_date;
-                    //     $booking->Message = $request->Message;
-                    //     $booking->Car_Type = $request->Car_Type;
-                    //     $booking->Status = $request->Status;
-                    //     $booking->Posting_date = $request->Posting_date;
-                    //     $booking->Registration_date = $request->Registration_date;
-                    //     $booking->Updation_date = $request->Updation_date;
+                    //   $vehicle=Vehicle::find($id);
+                      $booking = new Booking;
+                     
+                      //$booking->User_email=$request->User_email;
+                      $booking->vehicle_id = $request->vehicle_id;
+                      $booking->name=$request->name;
+                      $booking->start_date = $request->start_date;
+                      $booking->end_date = $request->end_date;
+                      $booking->car_Type = $request->car_Type;
+                      $booking->status = $request->status;
+                      $booking->posting_date = $request->posting_date;
+                    
 
-                    //     $result=$vehicle->save();
+                      $booking->save();
+
+                       return response()->json([
+                        "message" => "booking record sended"
+                    ], 201);
         // if($result)
-        // {
-        //     return["Result"=>"Vehicle record created"];
-        // }
-        // else{
-        //     return["Result"=>"error"];
-        // }
+        //  {
+        //      return["Result"=>"Vehicle record created"];
+        //  }
+        //  else{
+        //      return["Result"=>"error"];
+        //  }
 
-       // return BookingResource::collection($booking->paginate());
+        // return BookingResource::collection($booking->paginate());
     }
 
     /**

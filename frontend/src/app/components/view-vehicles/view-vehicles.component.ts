@@ -1,3 +1,4 @@
+import { Vehicle } from './../../model/vehicle';
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from 'src/app/services/vehicles.service';
 
@@ -7,13 +8,15 @@ import { VehiclesService } from 'src/app/services/vehicles.service';
   styleUrls: ['./view-vehicles.component.scss']
 })
 export class ViewVehiclesComponent implements OnInit {
-  vehicleArray :any;
+  vehicleArray :Vehicle[];
+  p:any;
+  selectValue:String;
   constructor(private vehiclesService: VehiclesService) { }
 
   ngOnInit(): void {
     this.vehiclesService.getAllVehicles().subscribe(res=>{
       console.log(res);
-      this.vehicleArray = res
+      this.vehicleArray = res;
      })
   }
 

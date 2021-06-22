@@ -1,7 +1,7 @@
 
 <div class="card">
   <div class="card-img-wrapper">
-    <img *ngIf="vehicle.veh_img" class="card-img-top" src="assets/{{vehicle.veh_img}}">
+    <img *ngIf="vehicle.veh_img" class="card-img-top" src="http://localhost:8000/img/{{vehicle.veh_img}}">
     <img *ngIf="!vehicle.veh_img" class="card-img-top" src="assets/emty.png">
     <ul *ngIf="!hideIcons" class="list-inline text-center member-icons animate">
       <li class="list-inline-item">

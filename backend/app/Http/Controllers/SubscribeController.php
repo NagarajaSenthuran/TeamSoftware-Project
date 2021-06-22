@@ -101,18 +101,14 @@ class SubscribeController extends Controller
      * @param  \App\Models\Subscribe  $subscribe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subscribe $subscribe)
+    public function destroy(Request $request, $id)
     {
-        $subscribe=Subscribe::find($id);
-        $result=$subscribe->delete();
-        if ($result)
-      {
-        return["Result"=>"subscribe deleted successfully"];
-      }
-      else
-      {
-        return["Result"=>"delete operation failed"];
-      }
+        $subscribe = Subscribe::find($id);
+        if(is_null( $subscribe)) {
+            return response()->json(['message' => 'Subscriber Not Found'], 404);
+        }
+        $subscribe->delete();
+        return response()->json(null, 204);
     
     }
 }

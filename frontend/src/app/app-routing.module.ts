@@ -27,6 +27,8 @@ import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-
 import { BarChartsComponent } from './home-admin/bar-charts/bar-charts.component';
 import { ViewBookingComponent } from './components/view-booking/view-booking.component';
 import { DashbordComponent } from './home-admin/dashbord/dashbord.component';
+import { ViewSubscribeComponent } from './components/view-subscribe/view-subscribe.component';
+import { ViewUserComponent } from './components/view-user/view-user.component';
 
 const routes: Routes = [
  // { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -51,8 +53,10 @@ const routes: Routes = [
   { path: 'vehicle-detail/:id', component: VehicleDetailsComponent,resolve :{ve:VehiclesDetailsResolverService}},
   { path: 'view-contact-quarry', component: ViewCotactQuarryComponent},
   { path: 'bar-chart', component: BarChartsComponent},
-  
+  { path: 'view-subscribe', component: ViewSubscribeComponent},
+  { path: 'view-user', component: ViewUserComponent},
  
+  
   
 ];
 

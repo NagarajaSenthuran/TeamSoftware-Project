@@ -14,7 +14,7 @@ import { AuthStateService } from '../../shared/auth-state.service';
 export class SigninComponent implements OnInit {
   loginForm: FormGroup;
   errors = null;
-
+userid:any;
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -33,6 +33,7 @@ export class SigninComponent implements OnInit {
   onSubmit() {
       this.authService.signin(this.loginForm.value).subscribe(
         result => {
+         this.userid=result.user.id;
           this.responseHandler(result);
         },
         error => {
@@ -40,7 +41,13 @@ export class SigninComponent implements OnInit {
         },() => {
           this.authState.setAuthState(true);
           this.loginForm.reset()
-          this.router.navigate(['profile']);
+          if(this.userid== 1){
+            this.router.navigate(['/admin']);
+          }
+          else{
+            this.router.navigate(['profile']);
+          }
+         
         }
       );
   }

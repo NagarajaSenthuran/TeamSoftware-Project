@@ -73,7 +73,13 @@
 
 
 ///////////////////////////new
+.error-block {
+    color: rgb(255, 255, 255);
+  }  
 
+  span{
+      font-size: small;
+  }
 body{
     background-image: url("../../assets/d1.jpg");
     //background-size: cover;

@@ -3,7 +3,7 @@
     <div class="col-sm-4 p-0">
       <div class="card">
         <div class="card-img-wrapper">
-            <img *ngIf="vehicle?.veh_img" class="card-img-top" src="assets/{{vehicle.veh_img}}">
+            <img *ngIf="vehicle?.veh_img" class="card-img-top" src="http://localhost:8000/img/{{vehicle.veh_img}}">
             <img *ngIf="!vehicle?.veh_img" class="card-img-top" src="assets/emty.png">
         </div>
         <div class="card-body">
@@ -88,7 +88,7 @@
                 </div>
                 
               </div>
-              <a href="/booking" class="button_a">Book Now!</a>
+              <a (click)="goToBooking()" class="button_a">Book Now!</a>
           </tab>
           <tab heading="Photos">  
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>

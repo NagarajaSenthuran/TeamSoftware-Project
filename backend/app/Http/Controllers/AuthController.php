@@ -52,12 +52,12 @@ class AuthController extends Controller {
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string|confirmed|min:6',
-            'address' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'phone_no' => 'required',
+            'address' => 'required|min:5',
+            'country' => 'required|min:3',
+            'city' => 'required|min:3',
+            'phone_no' => 'required|min:10',
             'dob' => 'required',
-            'NIC' => 'required',
+            'NIC' => 'required|alphaNum|min:10|regex:/^[0-9]{9}[vV]$/',
             'registation_date' => 'required',
             'updation_date' => 'required',
             
@@ -97,7 +97,21 @@ class AuthController extends Controller {
     public function refresh() {
         return $this->createNewToken(auth()->refresh());
     }
+     
+   //get all
+    public function show(User $user)
+    {
+        return User::all();
+    }
 
+    //get by id
+    public function getUserById($id) {
+        $user = User::find($id);
+        if(is_null($user)) {
+            return response()->json(['message' => 'user Not Found'], 404);
+        }
+        return response()->json($testimnial::find($id), 200);
+    }
     /**
      * Get the authenticated User.
      *

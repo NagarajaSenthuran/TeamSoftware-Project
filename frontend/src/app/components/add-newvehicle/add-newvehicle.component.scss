@@ -1,8 +1,8 @@
 body{
   background-image:url("../../../assets/b6.jpg") ;
-  background-size: 100%;
+ // background-size: 100%;
   background-size: cover;
-  height: 800px;
+  height: 780px;
   //background-color: black;
 }
 
@@ -31,6 +31,14 @@ body{
     text-align: center;
     border: 1px dashed blue;
     
+  }
+
+  .page-left{
+    margin-left: 300px;
+  }
+
+  .page-right{
+    margin-left: -100px;
   }
   
   .page_container{

@@ -97,7 +97,11 @@ export class VehicleDetailsComponent implements OnInit {
   
   
   }
-
+  goToBooking() {
+    console.log('vame');
+    
+    this.router.navigate(['/booking'], {queryParams: {  id: this.vehicle.id}});
+  }
 
 
 }

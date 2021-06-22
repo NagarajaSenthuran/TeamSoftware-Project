@@ -22,15 +22,15 @@ export class FeedbackService {
   
   }
 
-  // saveFeedback(form){
-  //   const feedback={
-  //     name:form.get('name').value,
-  //     email:form.get('email').value,
-  //     phoneno:form.get('phoneno').value,
-  //     postingdate:form.get('postingdate').value,
-  //     message:form.get('message').value
-  //   }
-  //   return this.http.post<any>('http://localhost:8000/api/testimonial',feedback);
-  // }
+   saveFeedback(form){
+     const feedback={
+       name:form.get('name').value,
+       email:form.get('email').value,
+       phoneno:form.get('phoneno').value,
+       postingdate:form.get('postingdate').value,
+       message:form.get('message').value
+     }
+     return this.http.post<any>('http://localhost:8000/api/feedback',feedback);
+   }
 }
 

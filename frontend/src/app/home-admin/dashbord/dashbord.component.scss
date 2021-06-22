@@ -40,6 +40,7 @@
   }
   body {
     font-size: 0.9rem;
+   
   }
   .page-wrapper .sidebar-wrapper,
   .sidebar-wrapper .sidebar-brand > a,
@@ -405,7 +406,7 @@
   /*-----------------------------chiller-theme-------------------------------------------------*/
   
   .chiller-theme .sidebar-wrapper {
-      background: #31353D;
+      background: #222325;
   }
   
   .chiller-theme .sidebar-wrapper .sidebar-header,
@@ -427,7 +428,7 @@
   .chiller-theme .sidebar-wrapper .sidebar-brand>a,
   .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
   .chiller-theme .sidebar-footer>a {
-      color: #818896;
+      color: #cccdce;
   }
   
   .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
@@ -458,17 +459,17 @@
   .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
   .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
   .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
-      background: #3a3f48;
+      background: #0e0e0e;
   }
   
   .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
-      color: #6c7b88;
+      color: #788692;
   }
   
   .chiller-theme .sidebar-footer {
-      background: #3a3f48;
-      box-shadow: 0px -1px 5px #282c33;
-      border-top: 1px solid #464a52;
+      background: #1e2024;
+      box-shadow: 0px -1px 5px #1d1f24;
+      border-top: 1px solid #27292c;
   }
   
   .chiller-theme .sidebar-footer>a:first-child {
@@ -488,3 +489,6 @@
     margin-left: 700px;
   }
 
+.bg-col{
+  background-color: rgb(211, 211, 211);
+}

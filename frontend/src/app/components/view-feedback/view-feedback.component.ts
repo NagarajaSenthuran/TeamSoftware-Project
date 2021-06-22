@@ -1,3 +1,4 @@
+import { Feedback } from './../../model/feedback';
 import { Component, OnInit } from '@angular/core';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
@@ -8,6 +9,9 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 })
 export class ViewFeedbackComponent implements OnInit {
   feedbackArray :any;
+  p:any;
+  selectValue:String;
+  
   constructor(private feedbackService: FeedbackService) {}
 
   ngOnInit(): void {
@@ -26,5 +30,7 @@ export class ViewFeedbackComponent implements OnInit {
     this.getFeedbackData();
     });
    }
+
+  
 }
 

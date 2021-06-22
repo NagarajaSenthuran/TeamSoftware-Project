@@ -15,21 +15,20 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');  
-            $table->string('User_email');  
-           // $table->unsignedBigInteger('Vehicle_id'); 
-            $table->date('Start_date',0);
-            $table->date('End_date',0);
-            $table->string('Message');
-            $table->string('Car_Type');
-            $table->string('Status');
-            $table->date('Posting_date',0);
+            $table->unsignedBigInteger('vehicle_id'); 
+            $table->string('name');  
+            //$table->string('user_email'); 
+            $table->date('start_date',0);
+            $table->date('end_date',0);
+            $table->string('car_Type');
+            $table->boolean('status')->nullable();
+            $table->date('posting_date',0);
             $table->timestamps();
 
 
            
-            $table->foreign('User_email')->references('email')->on('users')->onDelete('cascade');
-           // $table->foreign('Vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
+           // $table->foreign('User_email')->references('email')->on('users')->onDelete('cascade');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
         });
     }
 
