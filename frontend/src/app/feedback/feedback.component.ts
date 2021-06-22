@@ -62,7 +62,7 @@ export class FeedbackComponent implements OnInit {
     else{
       
       this.router.navigate(['/login']);
-      this.alertify.error('customer only give the feedback, Please Login');
+      this.alertify.error('Only registered customer can give the feedback, Please Login');
     }
   }
 

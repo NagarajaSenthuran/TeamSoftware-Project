@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -49,6 +50,8 @@ class BookingController extends Controller
                       //$booking->User_email=$request->User_email;
                       $booking->vehicle_id = $request->vehicle_id;
                       $booking->name=$request->name;
+                      $booking->email=$request->email;
+                      $booking->phone_no=$request->phone_no;
                       $booking->start_date = $request->start_date;
                       $booking->end_date = $request->end_date;
                       $booking->car_Type = $request->car_Type;
@@ -58,8 +61,14 @@ class BookingController extends Controller
 
                       $booking->save();
 
+                      Mail::send('email.name', ['data1' => $booking], function ($m) {
+         
+                      $m->to('kamalglobal241@gmail.com')->subject('Booking Form Mail!');
+                });
+                    //Json Response For Angular frontend
+                
                        return response()->json([
-                        "message" => "booking record sended"
+                        "message" => "Email sent successfully."
                     ], 201);
         // if($result)
         //  {

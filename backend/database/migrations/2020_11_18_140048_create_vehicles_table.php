@@ -18,7 +18,7 @@ class CreateVehiclesTable extends Migration
             $table->string('vehicle_name');
             $table->string('vehicle_brand');
             $table->string('vehicle_overview');
-            $table->string('price_per_day');
+            $table->integer('price_per_day');
             $table->string('fuel_type');
             $table->integer('model_year');
             $table->integer('seating_capacity');

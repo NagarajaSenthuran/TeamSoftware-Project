@@ -42,7 +42,7 @@ userid:any;
           this.authState.setAuthState(true);
           this.loginForm.reset()
           if(this.userid== 1){
-            this.router.navigate(['/admin']);
+            this.router.navigate(['/view-user']);
           }
           else{
             this.router.navigate(['profile']);

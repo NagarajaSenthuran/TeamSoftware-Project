@@ -42,6 +42,8 @@ export class BookingComponent implements OnInit {
         this.bookForm=this.fb.group({
           vehicle_id:[this.vid,[Validators.required]],
           name:['',[Validators.required]],
+          email:['',[Validators.required]],
+          phone_no:['',[Validators.required]],
           start_date:['',[Validators.required]],
           end_date:['',[Validators.required]],
           car_Type:['',[Validators.required]],
@@ -55,6 +57,8 @@ export class BookingComponent implements OnInit {
       this.bookForm=this.fb.group({
         vehicle_id:['',[Validators.required]],
         name:['',[Validators.required]],
+        email:['',[Validators.required]],
+        phone_no:['',[Validators.required]],
         start_date:['',[Validators.required]],
         end_date:['',[Validators.required]],
         car_Type:['',[Validators.required]],

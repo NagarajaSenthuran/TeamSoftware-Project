@@ -1,8 +1,8 @@
 body{
-    background-image: url("../../assets/b14.jpg");
+    background-image: url("../../assets/b1.jpg");
     background-size: cover;
     background-size: 100%;
-    height: 940px;
+    height: 1000px;
 }
 
 label{
@@ -10,7 +10,7 @@ label{
  }
 
 .btn-outline-primary{
-   color: black;
+   color: rgb(255, 255, 255);
     background-color: rgb(55, 119, 216);
  }
 
@@ -30,4 +30,10 @@ label{
     font-weight: bold;
     margin-top:7px;
     position: relative;
+}
+.form-control{
+    border-radius: 5px;
+}
+.m{
+    margin-left: 20px;
 }

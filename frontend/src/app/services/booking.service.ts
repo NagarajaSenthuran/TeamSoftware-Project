@@ -15,6 +15,8 @@ export class BookingService {
     const data={
       vehicle_id:form.vehicle_id,
       name:form.name,
+      email:form.email,
+      phone_no:form.phone_no,
       start_date:form.start_date,
       end_date:form.end_date,
       car_Type:form.car_Type,

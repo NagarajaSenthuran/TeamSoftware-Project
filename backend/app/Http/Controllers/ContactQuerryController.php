@@ -41,7 +41,7 @@ class ContactQuerryController extends Controller
         $validator=Validator::make($request->all(),[
             'name'=>'required|string|between:2,100',
             'email'=>'required|string|email|max:100|unique:users',
-            'phone_num'=>'required',
+            'phone_num'=>'required|min:10',
             'message'=>'required',
             'Posting_date'=>'required']);
         if($validator->passes())
