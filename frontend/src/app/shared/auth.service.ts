@@ -40,5 +40,10 @@ export class AuthService {
   getUserId(id: number):Observable<any>{
     return this.http.get('http://127.0.0.1:8000/api/auth/user/'+id);
   }
+
+  deleteData(id){
+    return this.http.delete('http://localhost:8000/api/auth/user/'+id);
+  
+  }
 }
 

@@ -20,6 +20,8 @@ Route::group([
     Route::get('user-profile', 'AuthController@userProfile');
     Route::get('view-user', 'AuthController@show');
     Route::get('user/{id}', 'AuthController@getUserById');
+    Route::delete('user/{id}', 'AuthController@destroy');
+    
     
 });
 

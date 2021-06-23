@@ -31,7 +31,7 @@
        
             <a class="nav-link fa fa-sign-in" *ngIf="!isSignedIn" aria-hidden="true" routerLink="/login" >Log in</a>
             
-            <a class="nav-link fa fa-user" routerLink="/admin" aria-hidden="true" *ngIf="isSignedIn">User Profile</a>
+            <a class="nav-link fa fa-user" routerLink="/view-user" aria-hidden="true" *ngIf="isSignedIn">User Profile</a>
           </li>
           <li class="nav-item">
             <button class="btn fa fa-sign-out nav-link btn-xs" (click)="signOut()" *ngIf="isSignedIn">Log out</button>
@@ -89,7 +89,7 @@
               <span>General</span>
             </li>
             <li class="sidebar-dropdown">
-              <a href="/admin">
+              <a href="/view-user">
                 <i class="fa fa-tachometer-alt"></i>
                 <span>Dashboard</span>
           </a>
@@ -174,16 +174,16 @@
       </div>
       <!-- sidebar-content  -->
       <div class="sidebar-footer">
-        <a href="/admin">
+        <a href="/view-user">
           <i class=""></i>
           <span class="badge badge-pill badge-warning notification"></span>
         </a>
-        <a href="/admin">
+        <a href="/view-user">
           <i class=""></i>
           <span class="badge badge-pill badge-success notification"></span>
         </a>
        
-        <a href="/admin">
+        <a href="/view-user">
           <i class=""></i>
         </a>
       </div>

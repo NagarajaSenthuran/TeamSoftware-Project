@@ -34,4 +34,10 @@ export class ViewUserComponent implements OnInit {
       });
   }
 
+  deleteData(id){
+    this.authService.deleteData(id).subscribe(res=>{
+    this.authService.getUsers();
+    });
+   }
+ 
 }
