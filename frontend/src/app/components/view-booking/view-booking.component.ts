@@ -14,10 +14,20 @@ export class ViewBookingComponent implements OnInit {
   constructor(private bookingService: BookingService) { }
 
   ngOnInit(): void {
-    this.bookingService.getAllBooking().subscribe(res=>{
-      console.log(res);
-      this.bookingArray = res;
-     })
+    this.getBookData();
   }
+
+  getBookData(){
+    this.bookingService.getAllBooking().subscribe(res=>{
+    //console.log(res);
+    this.bookingArray = res;
+    });
+  }
+
+  deleteData(id){
+    this.bookingService.deleteData(id).subscribe(res=>{
+      this.getBookData();
+    });
+   }
 
 }

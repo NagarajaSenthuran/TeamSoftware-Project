@@ -16,7 +16,7 @@
       </div>
 
       <div class="col-2 ml-5">
-        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white">Total Vehicles: </div>
+        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white"> </div>
       </div>
     </div>
     <br>
@@ -55,7 +55,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor = "let vehicle of vehicleArray | vehiclesearch:selectValue  | paginate:{ itemsPerPage:6,currentPage:p}">
+            <tr *ngFor = "let vehicle of vehicleArray | vehiclesearch:selectValue  | paginate:{ itemsPerPage:3,currentPage:p}">
               <td>{{vehicle.id}}</td>
               <td>{{vehicle.vehicle_name}}</td>
               <td>{{vehicle.vehicle_brand}}</td> 

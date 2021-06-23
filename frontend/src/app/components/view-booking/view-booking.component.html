@@ -17,7 +17,7 @@
       </div>
 
       <div class="col-2 ml-5">
-        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white">Total Booking: </div>
+        <div class="pull-right  p-4" style="font-size: 20px; font-weight: bold; color:white"> </div>
       </div>
     </div>
     <br>
@@ -51,7 +51,7 @@
               <th>End Rent Date</th>
               <th>Vehicle Type</th>
               <th>Posting Date</th>
-              <th>Edit</th>
+         
               <th>Delete</th> 
             </tr>
           </thead>
@@ -66,8 +66,7 @@
               <td>{{book.end_date}} </td>
               <td>{{book.car_Type}}</td>
               <td>{{book.posting_date}}</td>
-              <td><i class='fas fa-edit' style='font-size:20px;color:rgb(37, 150, 216)'></i></td>
-              <td><i class='fas fa-trash-alt' style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
+              <td><i class='fas fa-trash-alt'  (click)="deleteData(book.id)"  style='font-size:20px;color:rgb(252, 35, 35)'></i></td>
             </tr>
           </tbody>
         </table>

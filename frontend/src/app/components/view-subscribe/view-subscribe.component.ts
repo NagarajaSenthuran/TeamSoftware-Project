@@ -20,6 +20,7 @@ export class ViewSubscribeComponent implements OnInit {
     this.subscribeservice.getAllSubscribe().subscribe(res=>{
     //console.log(res);
     this.subscribekArray = res;
+  
     });
   }
 

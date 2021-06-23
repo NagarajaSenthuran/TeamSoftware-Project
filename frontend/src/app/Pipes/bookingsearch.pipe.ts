@@ -13,6 +13,8 @@ export class BookingsearchPipe implements PipeTransform {
     return book.filter(booking=>
       booking.vehicle_id.toString().toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
       booking.name.toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
+      booking.email.toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
+      booking.phone_no.toString().toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
       booking.posting_date.toString().toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
       booking.start_date.toString().toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
       booking.end_date.toString().toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())

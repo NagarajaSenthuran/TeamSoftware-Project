@@ -12,6 +12,7 @@ export class SearchuserPipe implements PipeTransform {
     }
     return users.filter(user=>
       user.name.toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
+      user.email.toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
       user.city.toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
       user.country.toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||
       user.registation_date.toLocaleLowerCase().includes(selectValue.toLocaleLowerCase())||

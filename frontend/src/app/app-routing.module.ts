@@ -26,9 +26,9 @@ import { VehiclesDetailsResolverService } from './vehicle-details/vehicles-detai
 import { ViewCotactQuarryComponent } from './components/view-cotact-quarry/view-cotact-quarry.component';
 import { BarChartsComponent } from './home-admin/bar-charts/bar-charts.component';
 import { ViewBookingComponent } from './components/view-booking/view-booking.component';
-import { DashbordComponent } from './home-admin/dashbord/dashbord.component';
 import { ViewSubscribeComponent } from './components/view-subscribe/view-subscribe.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
+import { AdminComponent } from './home-admin/admin/admin.component';
 
 const routes: Routes = [
  // { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'add-vehicle', component: AddVehicleComponent },
   { path: 'add-newvehicle', component: AddNewvehicleComponent },
   { path: 'vehicle-list', component: VehicleListComponent },
-  { path: 'admin', component: DashbordComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'view-feedback', component: ViewFeedbackComponent},
   { path: 'vehicle-detail/:id', component: VehicleDetailsComponent,resolve :{ve:VehiclesDetailsResolverService}},
   { path: 'view-contact-quarry', component: ViewCotactQuarryComponent},

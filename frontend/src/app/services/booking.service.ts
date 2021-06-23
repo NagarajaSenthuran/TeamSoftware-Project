@@ -29,4 +29,10 @@ export class BookingService {
   {
     return this.http.get('http://localhost:8000/api/bookings');
   }
+
+   
+  deleteData(id){
+    return this.http.delete('http://localhost:8000/api/bookings/'+id);
+  
+  }
 }
